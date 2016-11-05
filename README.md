@@ -5,24 +5,24 @@ Implementation of a guitar tuner for  Android using Tarsos library for pitch det
 
 To reach the best results, five methods were chosen in order to find the characteristic frequency:
 
-MPM (McLeod Pitch Method).
-AMDF (Average Magnitude Difference Function).
-YIN Pitch Tracking by AUBIO and a more performant version that uses FFT.
-Dynamic Wavelet Algorithm Pitch Tracking.
+<br>MPM (McLeod Pitch Method).</br>
+<br>AMDF (Average Magnitude Difference Function).</br>
+<br>YIN Pitch Tracking by AUBIO and a more performant version that uses FFT.</br>
+<br>Dynamic Wavelet Algorithm Pitch Tracking.</br>
 
 
-References:
+<br><b>References:</b></br>
 
-Tarsos DSP
+<br><i>Tarsos DSP</i></br>
 https://github.com/JorenSix/TarsosDSP
 
-McLeod Pitch Method
+<br><i>McLeod Pitch Method</i></br>
 http://miracle.otago.ac.nz/tartini/papers/A_Smarter_Way_to_Find_Pitch.pdf
 
-YIN
+<br><i>YIN</i></br>
 http://recherche.ircam.fr/equipes/pcm/cheveign/pss/2002_JASA_YIN.pdf
 
-Dynamic Wavelet Algorithm Pitch Tracking
+<br><i>Dynamic Wavelet Algorithm Pitch Tracking</i></br>
 https://pdfs.semanticscholar.org/1ecf/ae4b3618f92b4267912afbc59e3a3ea1d846.pdf
 
 
