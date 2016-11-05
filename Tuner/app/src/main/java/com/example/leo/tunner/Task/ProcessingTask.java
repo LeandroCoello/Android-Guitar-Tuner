@@ -21,7 +21,7 @@ public class ProcessingTask extends AsyncTask<Float, Float, Float> {
 
     private static short[] samples;
     private static final int SAMPLE_RATE = 48000;// 48000;
-    private static final int NUMBER_OF_SAMPLES = 1024;
+    private static final int NUMBER_OF_SAMPLES = 5120;
     private static int N;
 
 
@@ -42,7 +42,6 @@ public class ProcessingTask extends AsyncTask<Float, Float, Float> {
         //DynamicWavelet dw = new DynamicWavelet(SAMPLE_RATE, NUMBER_OF_SAMPLES);
         //FastYin fy = new FastYin(SAMPLE_RATE, NUMBER_OF_SAMPLES);
 
-        //NoteConversor nc = new NoteConversor();
         N = AudioRecord.getMinBufferSize(SAMPLE_RATE, AudioFormat.CHANNEL_IN_MONO, AudioFormat.ENCODING_PCM_16BIT);
         samples = new short[NUMBER_OF_SAMPLES];
 
@@ -86,10 +85,10 @@ public class ProcessingTask extends AsyncTask<Float, Float, Float> {
     @Override
     protected void onProgressUpdate(Float... values) {
 
-        //mAct.turnLightsOff();
-        //NoteConversor nc = new NoteConversor();
-        //String st = nc.getNote(values[0],mAct);
-        String st = values[0].toString();
+        mAct.turnLightsOff();
+        NoteConversor nc = new NoteConversor();
+        String st = nc.getNote(values[0],mAct);
+        //String st = values[0].toString();
 
         mAct.updateTxtFr(st);
     }
