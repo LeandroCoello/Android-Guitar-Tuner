@@ -1,15 +1,22 @@
 package com.example.leo.tunner;
 
 import android.graphics.Color;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+import android.support.v7.widget.LinearLayoutCompat;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.leo.tunner.Task.ProcessingTask;
+
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.List;
 
 import static android.graphics.Color.GRAY;
 import static android.graphics.Color.GREEN;
@@ -39,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initialize(){
+
         startButton = (Button) findViewById(R.id.button);
         startButton.setEnabled(true);
         stopButton = (Button) findViewById(R.id.button2);
@@ -66,9 +74,7 @@ public class MainActivity extends AppCompatActivity {
         startButton.setEnabled(false);
         stopButton.setEnabled(true);
         ptask = new ProcessingTask(this);
-        textFr.setText("148");
         ptask.execute();
-        textFr.setText("151");
 
 
     }
@@ -77,9 +83,9 @@ public class MainActivity extends AppCompatActivity {
         isListening = false;
         startButton.setEnabled(true);
         stopButton.setEnabled(false);
-        fr = 0;
+
         //ptask.cancel(true);
-        textFr.setText(Float.toString(fr));
+        textFr.setText(" ");
     }
 
     public void updateTxtFr(String text){
@@ -138,6 +144,7 @@ public class MainActivity extends AppCompatActivity {
     public boolean isListening(){
         return isListening;
     }
+
 
 
 }

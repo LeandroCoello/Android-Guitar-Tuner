@@ -94,8 +94,7 @@
         android:layout_marginRight="17dp"
         android:layout_marginEnd="17dp"
         android:layout_below="@+id/button2"
-        android:layout_toLeftOf="@+id/fifthString"
-        android:layout_toStartOf="@+id/fifthString" />
+        android:layout_toLeftOf="@+id/fifthString" />
 
     <Button
         android:text="Start Tuning"

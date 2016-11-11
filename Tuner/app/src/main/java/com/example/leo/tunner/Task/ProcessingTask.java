@@ -3,6 +3,8 @@ package com.example.leo.tunner.Task;
 import android.media.AudioFormat;
 import android.media.AudioRecord;
 import android.media.MediaRecorder;
+import android.media.audiofx.AutomaticGainControl;
+import android.media.audiofx.NoiseSuppressor;
 import android.os.AsyncTask;
 import android.widget.TextView;
 import java.lang.Short;
@@ -20,7 +22,7 @@ public class ProcessingTask extends AsyncTask<Float, Float, Float> {
 
 
     private static short[] samples;
-    private static final int SAMPLE_RATE = 48000;// 48000;
+    private static final int SAMPLE_RATE = 44100;// 48000;
     private static final int NUMBER_OF_SAMPLES = 5120;
     private static int N;
 
@@ -46,18 +48,21 @@ public class ProcessingTask extends AsyncTask<Float, Float, Float> {
         samples = new short[NUMBER_OF_SAMPLES];
 
         AudioRecord recorder = new AudioRecord(MediaRecorder.AudioSource.VOICE_RECOGNITION, SAMPLE_RATE, AudioFormat.CHANNEL_IN_MONO, AudioFormat.ENCODING_PCM_16BIT, N * 10);
+        //AutomaticGainControl.create(recorder.getAudioSessionId());
         recorder.startRecording();
 
 
         while(mAct.isListening()) {
 
+            recorder.read(samples, 0, samples.length);
+            //float[] infsamples = increaseGain(shortToFloat(samples),3f);
+            float[] infsamples = shortToFloat(samples);
 
-                recorder.read(samples, 0, samples.length);
-                //PitchDetectionResult pr = mpm.getPitch(shortToFloat(samples));
-                //PitchDetectionResult pr = amdf.getPitch(shortToFloat(samples));
-                PitchDetectionResult pr = yinM.getPitch(shortToFloat(samples)); //Best Results
-                //PitchDetectionResult pr = dw.getPitch(shortToFloat(samples)); //Bad Results
-                //PitchDetectionResult pr = fy.getPitch(shortToFloat(samples)); //Goood Results
+            //PitchDetectionResult pr = mpm.getPitch(infsamples); //Bad Results
+            //PitchDetectionResult pr = amdf.getPitch(infsamples); //Bad Results
+            PitchDetectionResult pr = yinM.getPitch(infsamples); //Best Results
+            //PitchDetectionResult pr = dw.getPitch(infsamples); //Bad Results
+            //PitchDetectionResult pr = fy.getPitch(infsamples); //Goood Results
 
 
 
@@ -69,6 +74,7 @@ public class ProcessingTask extends AsyncTask<Float, Float, Float> {
                     res = pr.getPitch();
                 }
                  publishProgress(res);
+
 
         }
         recorder.stop();
@@ -88,28 +94,36 @@ public class ProcessingTask extends AsyncTask<Float, Float, Float> {
         mAct.turnLightsOff();
         NoteConversor nc = new NoteConversor();
         String st = nc.getNote(values[0],mAct);
-        //String st = values[0].toString();
 
         mAct.updateTxtFr(st);
     }
 
     @Override
     protected void onPostExecute(Float result) {
-        mAct.updateTxtFr(result.toString());
+        mAct.updateTxtFr(" ");
 
     }
 
-    public float[] shortToFloat(short[] data){
-        float[] converted = new float[data.length];
+    public float[] shortToFloat(short[] samples){
+        float[] converted = new float[samples.length];
 
-        for(int i = 0; i< data.length; i++){
+        for(int i = 0; i< samples.length; i++){
 
-            Short n = data[i];
+            Short n = samples[i];
 
             converted[i] = n.floatValue();
         }
 
         return converted;
+    }
+
+    public float[] increaseGain(float [] samples, float gain){
+
+        for (int i=0; i <samples.length; i++){
+            samples[i]= samples[i] * gain;
+        }
+
+        return samples;
     }
 
 }
