@@ -3,6 +3,10 @@ package com.example.leo.tunner.NoteDisplay;
 
 import com.example.leo.tunner.MainActivity;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
+
 public class NoteConversor {
 
     // [Hertz]
@@ -14,163 +18,91 @@ public class NoteConversor {
     private Double e4 = 329.63; //first string
     private Double acceptPerc = 0.004;
     MainActivity mAct;
+    ArrayList<FreqRange> freqRangeList = new ArrayList<FreqRange>();
 
 
     public NoteConversor(){
 
+        initialize();
     }
 
-    public String getNote(Float frequency, MainActivity mAct) {
-        Double fr = frequency.doubleValue();
-        String note = "N/N";
-
-        //No sound
-        if (fr.equals(0.0)){
-            return note = " ";
-        }
-
+    private void initialize(){
         Double e2err = 0.8;//e2 * acceptPerc;
-
-        //Low E2
-        if(fr <= e2-e2err ){
-            mAct.turnLightOn(6);
-            mAct.turnLightOn(7);
-            return note = "E";
-        }
-        //E2
-        if ((fr > e2 - e2err) && (fr < e2 + e2err)) {
-            mAct.turnLightOn(6);
-            mAct.turnLightOn(9);
-            return note = "E";
-        }
-
         Double a2err = 0.8;//a2 * acceptPerc;
         Double limEA = (e2+e2err)+ ((a2-e2err)-(e2+e2err))/2;
-
-        //High E2
-        if((fr >= e2+e2err) && ((fr <= limEA))){
-            mAct.turnLightOn(6);
-            mAct.turnLightOn(8);
-            return note = "E";
-        }
-
-        //Low A2
-        if((fr > limEA)&&(fr <= a2-a2err)){
-            mAct.turnLightOn(5);
-            mAct.turnLightOn(7);
-            return note = "A";
-        }
-
-        //A2
-        if ((fr > a2 - a2err) && (fr < a2 + a2err)){
-            mAct.turnLightOn(5);
-            mAct.turnLightOn(9);
-            return note = "A";
-        }
-
         Double d3err = 0.8;//e2 * acceptPerc;
         Double limAD = (a2+a2err)+ ((d3-d3err)-(a2+a2err))/2;
-
-        //High A2
-        if((fr >= a2+a2err)&&(fr <= limAD)){
-            mAct.turnLightOn(5);
-            mAct.turnLightOn(8);
-            return note = "A";
-        }
-
-        //Low D3
-        if((fr > limAD)&&(fr <= d3-d3err)){
-            mAct.turnLightOn(4);
-            mAct.turnLightOn(7);
-            return note = "D";
-        }
-
-        //D3
-        if ((fr > d3 - d3err) && (fr <= d3 + d3err)){
-            mAct.turnLightOn(4);
-            mAct.turnLightOn(9);
-            return note = "D";
-        }
-
         Double g3err = g3 * acceptPerc;
         Double limDG = (d3+d3err)+ ((g3-g3err)-(d3+d3err))/2;
-
-        //High D3
-        if((fr > d3+d3err)&&(fr <= limDG)){
-            mAct.turnLightOn(4);
-            mAct.turnLightOn(8);
-            return note = "D";
-        }
-
-        //Low G3
-        if((fr > limDG)&&(fr <= g3-g3err)){
-            mAct.turnLightOn(3);
-            mAct.turnLightOn(7);
-            return note = "G";
-        }
-
-        //G3
-        if ((fr > g3 - g3err) && (fr <= g3 + g3err)){
-            mAct.turnLightOn(3);
-            mAct.turnLightOn(9);
-            return note = "G";
-        }
-
         Double b3err = b3 * acceptPerc;
         Double limGB = (g3+g3err)+ ((b3-b3err)-(g3+g3err))/2;
-
-        //High G3
-        if((fr > g3+g3err)&&(fr <= limGB)){
-            mAct.turnLightOn(3);
-            mAct.turnLightOn(8);
-            return note = "G";
-        }
-
-        //Low B3
-        if((fr > limGB)&&(fr <= b3-b3err )){
-            mAct.turnLightOn(2);
-            mAct.turnLightOn(7);
-            return note = "B";
-        }
-
-        //B3
-        if ((fr > b3 - b3err) && (fr <= b3 + b3err)){
-            mAct.turnLightOn(2);
-            mAct.turnLightOn(9);
-            return note = "B";
-        }
-
         Double e4err = e4 * acceptPerc;
         Double limBE = (b3+b3err)+ ((e4-e4err)-(b3+b3err))/2;
 
-        //High B3
-        if((fr > b3+b3err)&&(fr <= limBE)){
-            mAct.turnLightOn(2);
-            mAct.turnLightOn(8);
-            return note = "B";
+
+        FreqRange lowE = new FreqRange(0.0,e2-e2err,"E",new ArrayList<Integer>(Arrays.asList(6,7)));
+        freqRangeList.add(lowE);
+        FreqRange e = new FreqRange(e2-e2err,e2+e2err,"E",new ArrayList<Integer>(Arrays.asList(6,9)));
+        freqRangeList.add(e);
+        FreqRange highE = new FreqRange(e2+e2err,limEA,"E",new ArrayList<Integer>(Arrays.asList(6,8)));
+        freqRangeList.add(highE);
+        FreqRange lowA = new FreqRange(limEA,a2-a2err,"A",new ArrayList<Integer>(Arrays.asList(5,7)));
+        freqRangeList.add(lowA);
+        FreqRange a = new FreqRange(a2-a2err,a2+a2err,"A",new ArrayList<Integer>(Arrays.asList(5,9)));
+        freqRangeList.add(a);
+        FreqRange highA = new FreqRange(a2+a2err,limAD,"A",new ArrayList<Integer>(Arrays.asList(5,8)));
+        freqRangeList.add(highA);
+        FreqRange lowD = new FreqRange(limAD,d3-d3err,"D",new ArrayList<Integer>(Arrays.asList(4,7)));
+        freqRangeList.add(lowD);
+        FreqRange d = new FreqRange(d3-d3err,d3+d3err,"D",new ArrayList<Integer>(Arrays.asList(4,9)));
+        freqRangeList.add(d);
+        FreqRange highD = new FreqRange(d3+d3err,limDG,"D",new ArrayList<Integer>(Arrays.asList(4,8)));
+        freqRangeList.add(highD);
+        FreqRange lowG = new FreqRange(limDG,g3-g3err,"G",new ArrayList<Integer>(Arrays.asList(3,7)));
+        freqRangeList.add(lowG);
+        FreqRange g = new FreqRange(g3-g3err,g3+g3err,"G",new ArrayList<Integer>(Arrays.asList(3,9)));
+        freqRangeList.add(g);
+        FreqRange highG = new FreqRange(g3+g3err,limGB,"G",new ArrayList<Integer>(Arrays.asList(3,8)));
+        freqRangeList.add(highG);
+        FreqRange lowB = new FreqRange(limGB,b3-b3err,"B",new ArrayList<Integer>(Arrays.asList(2,7)));
+        freqRangeList.add(lowB);
+        FreqRange b = new FreqRange(b3-b3err,b3+b3err,"B",new ArrayList<Integer>(Arrays.asList(2,9)));
+        freqRangeList.add(b);
+        FreqRange highB = new FreqRange(b3+b3err,limBE,"B",new ArrayList<Integer>(Arrays.asList(2,8)));
+        freqRangeList.add(highB);
+        FreqRange lowE4 = new FreqRange(limBE,e4-e4err,"E",new ArrayList<Integer>(Arrays.asList(1,7)));
+        freqRangeList.add(lowE4);
+        FreqRange efour = new FreqRange(e4-e4err,e4+e4err,"E",new ArrayList<Integer>(Arrays.asList(1,9)));
+        freqRangeList.add(efour);
+        FreqRange highE4 = new FreqRange(e4+e4err,null,"E",new ArrayList<Integer>(Arrays.asList(1,8)));
+        freqRangeList.add(highE4);
+    }
+
+    public String getNote(Float frequency, MainActivity mAct){
+        Double fr = frequency.doubleValue();
+        String note = " ";
+        FreqRange noteF = null;
+
+        if(fr.equals(0.0)){
+            return note;
         }
 
-        //Low E4
-        if((fr > limBE)&&(fr <= e4-e4err)){
-            mAct.turnLightOn(1);
-            mAct.turnLightOn(7);
-            return note = "E";
-        }
+        for(int i = 0; i < freqRangeList.size(); i++){
 
-        //E4
-        if ((fr > e4 - e4err) && (fr <= e4 + e4err)) {
-            mAct.turnLightOn(1);
-            mAct.turnLightOn(9);
-            return note = "E";
-        }
+            if (freqRangeList.get(i).inRange(fr)){
 
-        //High E4
-        if(fr > e4+e4err) {
-            mAct.turnLightOn(1);
-            mAct.turnLightOn(8);
-            return note = "E";
+                noteF = freqRangeList.get(i);
+                break;
+            }
+        }
+        if(noteF !=null) {
+            note = noteF.getNote();
+            noteF.turnOnLeds(mAct);
         }
         return note;
     }
+
+
+
 
 }

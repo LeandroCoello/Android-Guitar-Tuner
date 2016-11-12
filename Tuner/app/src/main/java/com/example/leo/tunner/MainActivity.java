@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.leo.tunner.Task.ProcessingTask;
 import static android.graphics.Color.BLACK;
@@ -96,8 +97,6 @@ public class MainActivity extends AppCompatActivity {
         isListening = false;
         startButton.setEnabled(true);
         stopButton.setEnabled(false);
-
-        //ptask.cancel(true);
         textFr.setText(" ");
     }
 
@@ -158,6 +157,9 @@ public class MainActivity extends AppCompatActivity {
         return isListening;
     }
 
-
+    public void displayToast(String text){
+        Toast toast = Toast.makeText(this.getApplicationContext(), text,Toast.LENGTH_SHORT);
+        toast.show();
+    }
 
 }
