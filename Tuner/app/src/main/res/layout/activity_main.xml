@@ -10,6 +10,7 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
+    android:background="@drawable/wood_wallpaper_12801"
     tools:context="com.example.leo.tunner.MainActivity">
 
 
@@ -27,13 +28,39 @@
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        app:srcCompat="@android:drawable/ic_notification_overlay"
+        android:id="@+id/frameFifS"
+        android:layout_alignTop="@+id/sixtString"
+        android:layout_toLeftOf="@+id/button"
+        android:layout_toStartOf="@+id/button"
+        android:layout_marginRight="16dp"
+        android:layout_marginEnd="16dp"
+        android:scaleX="1.2"
+        android:scaleY="1.2"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         app:srcCompat="@android:drawable/presence_invisible"
         android:id="@+id/fifthString"
         android:layout_alignTop="@+id/sixtString"
         android:layout_toLeftOf="@+id/button"
         android:layout_toStartOf="@+id/button"
         android:layout_marginRight="16dp"
-        android:layout_marginEnd="16dp" />
+        android:layout_marginEnd="16dp"
+        android:scaleX="1.2"
+        android:scaleY="1.2"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@android:drawable/ic_notification_overlay"
+        android:id="@+id/frameForthS"
+        android:layout_alignTop="@+id/fifthString"
+        android:layout_alignLeft="@+id/button2"
+        android:layout_alignStart="@+id/button2"
+        android:scaleX="1.2"
+        android:scaleY="1.2"/>
 
     <ImageView
         android:layout_width="wrap_content"
@@ -42,7 +69,20 @@
         android:id="@+id/forthString"
         android:layout_alignTop="@+id/fifthString"
         android:layout_alignLeft="@+id/button2"
-        android:layout_alignStart="@+id/button2" />
+        android:layout_alignStart="@+id/button2"
+        android:scaleX="1.2"
+        android:scaleY="1.2"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@android:drawable/ic_notification_overlay"
+        android:id="@+id/frameThirdS"
+        android:layout_alignTop="@+id/forthString"
+        android:layout_toLeftOf="@+id/secondString"
+        android:layout_toStartOf="@+id/secondString"
+        android:scaleX="1.2"
+        android:scaleY="1.2"/>
 
     <ImageView
         android:layout_width="wrap_content"
@@ -51,7 +91,22 @@
         android:id="@+id/thirdString"
         android:layout_alignTop="@+id/forthString"
         android:layout_toLeftOf="@+id/secondString"
-        android:layout_toStartOf="@+id/secondString" />
+        android:layout_toStartOf="@+id/secondString"
+        android:scaleX="1.2"
+        android:scaleY="1.2"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@android:drawable/ic_notification_overlay"
+        android:id="@+id/frameSecondS"
+        android:layout_alignTop="@+id/thirdString"
+        android:layout_toRightOf="@+id/button"
+        android:layout_toEndOf="@+id/button"
+        android:layout_marginLeft="20dp"
+        android:layout_marginStart="20dp"
+        android:scaleX="1.2"
+        android:scaleY="1.2"/>
 
     <ImageView
         android:layout_width="wrap_content"
@@ -62,7 +117,22 @@
         android:layout_toRightOf="@+id/button"
         android:layout_toEndOf="@+id/button"
         android:layout_marginLeft="20dp"
-        android:layout_marginStart="20dp" />
+        android:layout_marginStart="20dp"
+        android:scaleX="1.2"
+        android:scaleY="1.2"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@android:drawable/ic_notification_overlay"
+        android:id="@+id/frameFirstS"
+        android:layout_marginLeft="21dp"
+        android:layout_marginStart="21dp"
+        android:layout_alignTop="@+id/secondString"
+        android:layout_toRightOf="@+id/secondString"
+        android:layout_toEndOf="@+id/secondString"
+        android:scaleX="1.2"
+        android:scaleY="1.2"/>
 
     <ImageView
         android:layout_width="wrap_content"
@@ -73,7 +143,22 @@
         android:layout_marginStart="21dp"
         android:layout_alignTop="@+id/secondString"
         android:layout_toRightOf="@+id/secondString"
-        android:layout_toEndOf="@+id/secondString" />
+        android:layout_toEndOf="@+id/secondString"
+        android:scaleX="1.2"
+        android:scaleY="1.2"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@android:drawable/ic_notification_overlay"
+        android:id="@+id/frameBemol"
+        android:layout_marginTop="30dp"
+        android:layout_below="@+id/textFr"
+        android:layout_alignLeft="@+id/fifthString"
+        android:layout_alignStart="@+id/fifthString"
+        android:scaleX="1.2"
+        android:scaleY="1.2"/>
+
 
     <ImageView
         android:layout_width="wrap_content"
@@ -83,7 +168,22 @@
         android:layout_marginTop="30dp"
         android:layout_below="@+id/textFr"
         android:layout_alignLeft="@+id/fifthString"
-        android:layout_alignStart="@+id/fifthString" />
+        android:layout_alignStart="@+id/fifthString"
+        android:scaleX="1.2"
+        android:scaleY="1.2"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@android:drawable/ic_notification_overlay"
+        android:id="@+id/frameSixS"
+        android:layout_marginTop="64dp"
+        android:layout_marginRight="17dp"
+        android:layout_marginEnd="17dp"
+        android:layout_below="@+id/button2"
+        android:layout_toLeftOf="@+id/fifthString"
+        android:scaleX="1.2"
+        android:scaleY="1.2"/>
 
     <ImageView
         android:layout_width="wrap_content"
@@ -94,7 +194,9 @@
         android:layout_marginRight="17dp"
         android:layout_marginEnd="17dp"
         android:layout_below="@+id/button2"
-        android:layout_toLeftOf="@+id/fifthString" />
+        android:layout_toLeftOf="@+id/fifthString"
+        android:scaleX="1.2"
+        android:scaleY="1.2"/>
 
     <Button
         android:text="Start Tuning"
@@ -216,18 +318,50 @@
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:srcCompat="@android:drawable/presence_invisible"
-        android:id="@+id/sharp"
+        app:srcCompat="@android:drawable/ic_notification_overlay"
+        android:id="@+id/frameSharp"
         android:layout_alignTop="@+id/bemol"
         android:layout_alignRight="@+id/textView2B"
-        android:layout_alignEnd="@+id/textView2B" />
+        android:layout_alignEnd="@+id/textView2B"
+        android:scaleX="1.2"
+        android:scaleY="1.2"/>
 
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:srcCompat="@android:drawable/ic_notification_overlay"
-        android:id="@+id/ok"
-        android:layout_alignTop="@+id/sharp"
+        app:srcCompat="@android:drawable/presence_invisible"
+        android:id="@+id/sharp"
+        android:layout_alignTop="@+id/bemol"
+        android:layout_alignRight="@+id/textView2B"
+        android:layout_alignEnd="@+id/textView2B"
+        android:scaleX="1.2"
+        android:scaleY="1.2"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/btn_radio_on_focused_holo_light"
+        android:id="@+id/frameOK"
+        android:layout_alignBottom="@+id/sharp"
         android:layout_centerHorizontal="true" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/btn_radio_on_holo_light"
+        android:id="@+id/ok"
+        android:layout_alignBottom="@+id/sharp"
+        android:layout_centerHorizontal="true"
+        />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/ic_find_previous_holo_light"
+        android:id="@+id/imageView9"
+        android:layout_alignBottom="@+id/textView11"
+        android:layout_alignLeft="@+id/ok"
+        android:layout_alignStart="@+id/ok" />
+
 
 </RelativeLayout>

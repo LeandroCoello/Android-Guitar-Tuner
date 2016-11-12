@@ -1,26 +1,19 @@
 package com.example.leo.tunner;
 
-import android.graphics.Color;
-import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-import android.support.v7.widget.LinearLayoutCompat;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.leo.tunner.Task.ProcessingTask;
-
-import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.List;
-
+import static android.graphics.Color.BLACK;
 import static android.graphics.Color.GRAY;
 import static android.graphics.Color.GREEN;
 import static android.graphics.Color.RED;
+import static android.graphics.Color.TRANSPARENT;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -31,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     private Button startButton, stopButton;
-    private ImageView sixthS, fifthS, forthS, thirdS, secondS, firstS, bemol, sharp, ok;
+    private ImageView sixthS, fifthS, forthS, thirdS, secondS, firstS, bemol, sharp, ok, f1, f2, f3, f4, f5, f6, fb, fs;
     private TextView textFr;
 
 
@@ -46,6 +39,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initialize(){
+
+
 
         startButton = (Button) findViewById(R.id.button);
         startButton.setEnabled(true);
@@ -62,10 +57,28 @@ public class MainActivity extends AppCompatActivity {
         sharp = (ImageView) findViewById(R.id.sharp);
         ok = (ImageView)findViewById(R.id.ok);
 
+        f6 = (ImageView) findViewById(R.id.frameSixS);
+        f6.setColorFilter(BLACK);
+        f5 = (ImageView) findViewById(R.id.frameFifS);
+        f5.setColorFilter(BLACK);
+        f4 = (ImageView) findViewById(R.id.frameForthS);
+        f4.setColorFilter(BLACK);
+        f3 = (ImageView) findViewById(R.id.frameThirdS);
+        f3.setColorFilter(BLACK);
+        f2 = (ImageView) findViewById(R.id.frameSecondS);
+        f2.setColorFilter(BLACK);
+        f1 = (ImageView) findViewById(R.id.frameFirstS);
+        f1.setColorFilter(BLACK);
+        fb = (ImageView) findViewById(R.id.frameBemol);
+        fb.setColorFilter(BLACK);
+        fs = (ImageView) findViewById(R.id.frameSharp);
+        fs.setColorFilter(BLACK);
+
+
         turnLightsOff();
 
         textFr = (TextView) findViewById(R.id.textFr);
-        textFr.setText(Float.toString(fr));
+        //textFr.setText(Float.toString(fr));
     }
 
     public void startRecording(View v){
@@ -137,7 +150,7 @@ public class MainActivity extends AppCompatActivity {
          firstS.setColorFilter(GRAY);
          bemol.setColorFilter(GRAY);
          sharp.setColorFilter(GRAY);
-         ok.setColorFilter(GRAY);
+         ok.setColorFilter(TRANSPARENT);
 
     }
 

@@ -3,8 +3,6 @@ package com.example.leo.tunner.Task;
 import android.media.AudioFormat;
 import android.media.AudioRecord;
 import android.media.MediaRecorder;
-import android.media.audiofx.AutomaticGainControl;
-import android.media.audiofx.NoiseSuppressor;
 import android.os.AsyncTask;
 import android.widget.TextView;
 import java.lang.Short;
@@ -48,7 +46,6 @@ public class ProcessingTask extends AsyncTask<Float, Float, Float> {
         samples = new short[NUMBER_OF_SAMPLES];
 
         AudioRecord recorder = new AudioRecord(MediaRecorder.AudioSource.VOICE_RECOGNITION, SAMPLE_RATE, AudioFormat.CHANNEL_IN_MONO, AudioFormat.ENCODING_PCM_16BIT, N * 10);
-        //AutomaticGainControl.create(recorder.getAudioSessionId());
         recorder.startRecording();
 
 
@@ -70,7 +67,6 @@ public class ProcessingTask extends AsyncTask<Float, Float, Float> {
             Double ad1 = 0.0;
             Float res = ad1.floatValue();
                 if(pr.isPitched()) {
-                    //st = nc.getNote(pr.getPitch(),mAct);
                     res = pr.getPitch();
                 }
                  publishProgress(res);
