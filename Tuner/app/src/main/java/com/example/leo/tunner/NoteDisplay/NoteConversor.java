@@ -36,7 +36,7 @@ public class NoteConversor {
         Double limDG = (d3+d3err)+ ((g3-g3err)-(d3+d3err))/2;
         Double b3err = b3 * acceptPerc;
         Double limGB = (g3+g3err)+ ((b3-b3err)-(g3+g3err))/2;
-        Double e4err = e4 * acceptPerc;
+        Double e4err = 0.8;//e4 * acceptPerc;
         Double limBE = (b3+b3err)+ ((e4-e4err)-(b3+b3err))/2;
 
 

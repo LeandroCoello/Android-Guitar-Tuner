@@ -1,5 +1,7 @@
 package com.example.leo.tunner;
 
+import android.graphics.Color;
+import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
@@ -24,8 +26,8 @@ public class MainActivity extends AppCompatActivity {
     private boolean isListening;
 
 
-    private Button startButton, stopButton;
-    private ImageView sixthS, fifthS, forthS, thirdS, secondS, firstS, bemol, sharp, ok, f1, f2, f3, f4, f5, f6, fb, fs;
+    private Button strtButton, stpButton;
+    private ImageView sixthS, fifthS, forthS, thirdS, secondS, firstS, bemol, sharp, ok, f1, f2, f3, f4, f5, f6, fb, fs,fn;
     private TextView textFr;
 
 
@@ -37,16 +39,17 @@ public class MainActivity extends AppCompatActivity {
         initialize();
 
 
+
     }
 
     private void initialize(){
 
 
 
-        startButton = (Button) findViewById(R.id.button);
-        startButton.setEnabled(true);
-        stopButton = (Button) findViewById(R.id.button2);
-        stopButton.setEnabled(false);
+        strtButton = (Button) findViewById(R.id.startButton);
+        strtButton.setEnabled(true);
+        stpButton = (Button) findViewById(R.id.stopButton);
+        stpButton.setEnabled(false);
 
         sixthS = (ImageView) findViewById(R.id.sixtString);
         fifthS = (ImageView) findViewById(R.id.fifthString);
@@ -74,19 +77,23 @@ public class MainActivity extends AppCompatActivity {
         fb.setColorFilter(BLACK);
         fs = (ImageView) findViewById(R.id.frameSharp);
         fs.setColorFilter(BLACK);
-
+        fs = (ImageView) findViewById(R.id.frameNote);
+        fs.setColorFilter(BLACK);
 
         turnLightsOff();
 
         textFr = (TextView) findViewById(R.id.textFr);
-        //textFr.setText(Float.toString(fr));
+        Typeface tf = Typeface.createFromAsset(getApplicationContext().getAssets(),"fonts/jd_lcd_rounded.ttf");
+        textFr.setTypeface(tf);
+        textFr.setTextColor(GREEN);
     }
 
     public void startRecording(View v){
 
+        strtButton.setEnabled(false);
+        stpButton.setEnabled(true);
         isListening = true;
-        startButton.setEnabled(false);
-        stopButton.setEnabled(true);
+
         ptask = new ProcessingTask(this);
         ptask.execute();
 
@@ -95,8 +102,8 @@ public class MainActivity extends AppCompatActivity {
 
     public void stopRecording(View v){
         isListening = false;
-        startButton.setEnabled(true);
-        stopButton.setEnabled(false);
+        strtButton.setEnabled(true);
+        stpButton.setEnabled(false);
         textFr.setText(" ");
     }
 

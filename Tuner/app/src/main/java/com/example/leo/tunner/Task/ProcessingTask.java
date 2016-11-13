@@ -48,7 +48,6 @@ public class ProcessingTask extends AsyncTask<Float, Float, Float> {
         AudioRecord recorder = new AudioRecord(MediaRecorder.AudioSource.VOICE_RECOGNITION, SAMPLE_RATE, AudioFormat.CHANNEL_IN_MONO, AudioFormat.ENCODING_PCM_16BIT, N * 10);
         recorder.startRecording();
 
-
         while(mAct.isListening()) {
 
             recorder.read(samples, 0, samples.length);
@@ -60,8 +59,6 @@ public class ProcessingTask extends AsyncTask<Float, Float, Float> {
             PitchDetectionResult pr = yinM.getPitch(infsamples); //Best Results
             //PitchDetectionResult pr = dw.getPitch(infsamples); //Bad Results
             //PitchDetectionResult pr = fy.getPitch(infsamples); //Goood Results
-
-
 
 
             Double ad1 = 0.0;
