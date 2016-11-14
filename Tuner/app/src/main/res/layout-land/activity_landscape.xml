@@ -79,8 +79,8 @@
                 android:layout_alignParentTop="true"
                 android:layout_alignParentRight="true"
                 android:layout_alignParentEnd="true"
-                android:layout_marginTop="25dp"
-                android:layout_marginRight="70dp"/>
+                android:layout_marginTop="35dp"
+                android:layout_marginRight="115dp"/>
 
             <ImageView
                 android:layout_width="wrap_content"
@@ -89,7 +89,7 @@
                 android:id="@+id/firstString"
                 android:scaleX="1.2"
                 android:scaleY="1.2"
-                android:layout_marginTop="25dp"
+                android:layout_marginTop="35dp"
                 android:layout_alignParentTop="true"
                 android:layout_alignLeft="@+id/frameFirstS"
                 android:layout_alignStart="@+id/frameFirstS" />
@@ -106,7 +106,7 @@
                 android:layout_toLeftOf="@+id/firstString"
                 android:layout_toStartOf="@+id/firstString"
                 android:layout_marginRight="22dp"
-                android:layout_marginTop="25dp"/>
+                android:layout_marginTop="35dp"/>
 
             <ImageView
                 android:layout_width="wrap_content"
@@ -118,7 +118,7 @@
                 android:layout_alignParentTop="true"
                 android:layout_alignLeft="@+id/frameSecondS"
                 android:layout_alignStart="@+id/frameSecondS"
-                android:layout_marginTop="25dp"/>
+                android:layout_marginTop="35dp"/>
 
             <ImageView
                 android:layout_width="wrap_content"
@@ -133,7 +133,7 @@
                 android:layout_toStartOf="@+id/frameSecondS"
                 android:layout_marginRight="22dp"
                 android:layout_marginEnd="22dp"
-                android:layout_marginTop="25dp"/>
+                android:layout_marginTop="35dp"/>
 
             <ImageView
                 android:layout_width="wrap_content"
@@ -145,7 +145,7 @@
                 android:layout_alignParentTop="true"
                 android:layout_alignLeft="@+id/frameThirdS"
                 android:layout_alignStart="@+id/frameThirdS"
-                android:layout_marginTop="25dp"/>
+                android:layout_marginTop="35dp"/>
 
             <ImageView
                 android:layout_width="wrap_content"
@@ -159,7 +159,7 @@
                 android:layout_toRightOf="@+id/frameFifS"
                 android:layout_toEndOf="@+id/frameFifS"
                 android:layout_marginLeft="22dp"
-                android:layout_marginTop="25dp"/>
+                android:layout_marginTop="35dp"/>
 
             <ImageView
                 android:layout_width="wrap_content"
@@ -171,7 +171,7 @@
                 android:layout_alignParentTop="true"
                 android:layout_alignLeft="@+id/frameForthS"
                 android:layout_alignStart="@+id/frameForthS"
-                android:layout_marginTop="25dp" />
+                android:layout_marginTop="35dp" />
 
             <ImageView
                 android:layout_width="wrap_content"
@@ -179,8 +179,8 @@
                 app:srcCompat="@android:drawable/ic_notification_overlay"
                 android:id="@+id/frameSixS"
                 android:tint="@color/colorPrimaryDark"
-                android:layout_marginTop="25dp"
-                android:layout_marginLeft="70dp"
+                android:layout_marginTop="35dp"
+                android:layout_marginLeft="115dp"
                 android:scaleX="1.5"
                 android:scaleY="1.5"/>
 
@@ -189,8 +189,8 @@
                 android:layout_height="wrap_content"
                 app:srcCompat="@android:drawable/presence_invisible"
                 android:id="@+id/sixtString"
-                android:layout_marginTop="25dp"
-                android:layout_marginLeft="70dp"
+                android:layout_marginTop="35dp"
+                android:layout_marginLeft="115dp"
                 android:scaleX="1.2"
                 android:scaleY="1.2"/>
 
@@ -202,7 +202,7 @@
                 android:tint="@color/colorPrimaryDark"
                 android:scaleX="1.5"
                 android:scaleY="1.5"
-                android:layout_marginTop="25dp"
+                android:layout_marginTop="35dp"
                 android:layout_toRightOf="@+id/frameSixS"
                 android:layout_toEndOf="@+id/frameSixS"
                 android:layout_marginLeft="22dp"/>
@@ -270,7 +270,8 @@
                 android:textStyle="normal|bold"
                 android:layout_alignParentTop="true"
                 android:layout_alignLeft="@+id/frameForthS"
-                android:layout_alignStart="@+id/frameForthS" />
+                android:layout_alignStart="@+id/frameForthS"
+                android:layout_alignBaseline="@+id/textView6E"/>
 
             <TextView
                 android:text="3G"
@@ -282,16 +283,6 @@
                 android:layout_alignRight="@+id/frameThirdS"
                 android:layout_alignEnd="@+id/frameThirdS" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/textFr"
-                android:layout_alignLeft="@+id/frameNote"
-                android:layout_alignStart="@+id/frameNote"
-                android:layout_centerVertical="true"
-                android:textSize="65sp"
-                android:layout_marginTop="5dp"/>
-
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -302,6 +293,16 @@
                 android:scaleY="3"
                 android:layout_centerVertical="true"
                 android:layout_centerHorizontal="true" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/textFr"
+                android:layout_alignLeft="@+id/frameNote"
+                android:layout_alignStart="@+id/frameNote"
+                android:layout_centerVertical="true"
+                android:textSize="65sp"
+                android:layout_marginTop="5dp"/>
 
         </RelativeLayout>
 
@@ -318,6 +319,7 @@
                 android:scaleX="1.2"
                 android:scaleY="1.2"
                 android:layout_alignParentTop="true"
+                android:layout_marginTop="10dp"
                 android:layout_alignLeft="@+id/ok"
                 android:layout_alignStart="@+id/ok" />
 
@@ -328,17 +330,9 @@
                 android:id="@+id/ok"
                 android:scaleX="1.2"
                 android:scaleY="1.2"
+                android:layout_marginTop="10dp"
                 android:layout_alignParentTop="true"
                 android:layout_centerHorizontal="true" />
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:srcCompat="@drawable/ic_find_previous_holo_light"
-                android:id="@+id/imageView9"
-                android:layout_below="@+id/frameOK"
-                android:layout_alignLeft="@+id/frameOK"
-                android:layout_alignStart="@+id/frameOK" />
 
             <TextView
                 android:text="♭"
@@ -351,7 +345,7 @@
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
                 android:layout_marginLeft="190dp"
-                android:layout_marginBottom="40dp" />
+                android:layout_marginBottom="30dp" />
 
             <ImageView
                 android:layout_width="wrap_content"
@@ -366,7 +360,7 @@
                 android:layout_alignParentTop="true"
                 android:layout_alignParentEnd="true"
                 android:layout_marginEnd="190dp"
-                android:layout_marginTop="20dp"/>
+                android:layout_marginTop="30dp"/>
 
             <TextView
                 android:text="#"
@@ -378,7 +372,7 @@
                 android:fontFamily="sans-serif"
                 android:textSize="24sp"
                 android:layout_marginRight="190dp"
-                android:layout_marginBottom="40dp"
+                android:layout_marginBottom="30dp"
                 android:layout_alignParentBottom="true"
                 android:layout_alignParentRight="true"
                 android:layout_alignParentEnd="true" />
@@ -396,7 +390,7 @@
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
                 android:layout_marginLeft="190dp"
-                android:layout_marginTop="20dp" />
+                android:layout_marginTop="30dp" />
 
             <ImageView
                 android:layout_width="wrap_content"
@@ -421,6 +415,15 @@
                 android:layout_alignBottom="@+id/frameSharp"
                 android:layout_alignLeft="@+id/frameSharp"
                 android:layout_alignStart="@+id/frameSharp" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/ic_find_previous_holo_light"
+                android:id="@+id/imageView9"
+                android:layout_below="@+id/frameOK"
+                android:layout_alignLeft="@+id/frameOK"
+                android:layout_alignStart="@+id/frameOK" />
 
         </RelativeLayout>
 

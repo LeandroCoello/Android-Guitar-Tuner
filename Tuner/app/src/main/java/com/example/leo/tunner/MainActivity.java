@@ -168,5 +168,12 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    public void onDestroy(){
+
+        isListening = false;
+        super.onDestroy();
+    }
+
 
 }

@@ -16,7 +16,6 @@ public class NoteConversor {
     private Double g3 = 196.00; //third string
     private Double b3 = 246.94; //second string
     private Double e4 = 329.63; //first string
-    private Double acceptPerc = 0.004;
     MainActivity mAct;
     ArrayList<FreqRange> freqRangeList = new ArrayList<FreqRange>();
 
@@ -27,16 +26,16 @@ public class NoteConversor {
     }
 
     private void initialize(){
-        Double e2err = 0.8;//e2 * acceptPerc;
-        Double a2err = 0.8;//a2 * acceptPerc;
+        Double e2err = 0.35;
+        Double a2err = 0.45;
         Double limEA = (e2+e2err)+ ((a2-e2err)-(e2+e2err))/2;
-        Double d3err = 0.8;//e2 * acceptPerc;
+        Double d3err = 0.55;
         Double limAD = (a2+a2err)+ ((d3-d3err)-(a2+a2err))/2;
-        Double g3err = g3 * acceptPerc;
+        Double g3err = 0.55;
         Double limDG = (d3+d3err)+ ((g3-g3err)-(d3+d3err))/2;
-        Double b3err = b3 * acceptPerc;
+        Double b3err = 0.25;
         Double limGB = (g3+g3err)+ ((b3-b3err)-(g3+g3err))/2;
-        Double e4err = 0.8;//e4 * acceptPerc;
+        Double e4err = 0.35;
         Double limBE = (b3+b3err)+ ((e4-e4err)-(b3+b3err))/2;
 
 
