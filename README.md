@@ -1,9 +1,9 @@
 # Android-Guitar-Tuner
 
-Implementation of a guitar tuner for  Android using Tarsos library for pitch detection.
+Implementation of an Android guitar tuner using Tarsos library for pitch detection/estimation.
 
 
-To reach the best results, five methods were chosen in order to find the characteristic frequency:
+To reach the best results at finding the characteristic frequency, five methods were chosen:
 
 <br>MPM (McLeod Pitch Method).</br>
 <br>AMDF (Average Magnitude Difference Function).</br>
