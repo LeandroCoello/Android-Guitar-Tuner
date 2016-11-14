@@ -1,6 +1,6 @@
 package com.example.leo.tunner;
 
-import android.graphics.Color;
+import android.content.res.Configuration;
 import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -12,6 +12,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.leo.tunner.Task.ProcessingTask;
+
 import static android.graphics.Color.BLACK;
 import static android.graphics.Color.GRAY;
 import static android.graphics.Color.GREEN;
@@ -34,16 +35,22 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
 
+        Configuration conf = this.getResources().getConfiguration();
+
+        if(conf.orientation ==Configuration.ORIENTATION_PORTRAIT){
+
+            setContentView(R.layout.activity_main);
+        }else {
+            setContentView(R.layout.activity_landscape);
+
+        }
         initialize();
-
 
 
     }
 
     private void initialize(){
-
 
 
         strtButton = (Button) findViewById(R.id.startButton);
@@ -62,23 +69,14 @@ public class MainActivity extends AppCompatActivity {
         ok = (ImageView)findViewById(R.id.ok);
 
         f6 = (ImageView) findViewById(R.id.frameSixS);
-        f6.setColorFilter(BLACK);
         f5 = (ImageView) findViewById(R.id.frameFifS);
-        f5.setColorFilter(BLACK);
         f4 = (ImageView) findViewById(R.id.frameForthS);
-        f4.setColorFilter(BLACK);
         f3 = (ImageView) findViewById(R.id.frameThirdS);
-        f3.setColorFilter(BLACK);
         f2 = (ImageView) findViewById(R.id.frameSecondS);
-        f2.setColorFilter(BLACK);
         f1 = (ImageView) findViewById(R.id.frameFirstS);
-        f1.setColorFilter(BLACK);
         fb = (ImageView) findViewById(R.id.frameBemol);
-        fb.setColorFilter(BLACK);
         fs = (ImageView) findViewById(R.id.frameSharp);
-        fs.setColorFilter(BLACK);
         fs = (ImageView) findViewById(R.id.frameNote);
-        fs.setColorFilter(BLACK);
 
         turnLightsOff();
 
@@ -167,6 +165,8 @@ public class MainActivity extends AppCompatActivity {
     public void displayToast(String text){
         Toast toast = Toast.makeText(this.getApplicationContext(), text,Toast.LENGTH_SHORT);
         toast.show();
+
     }
+
 
 }
