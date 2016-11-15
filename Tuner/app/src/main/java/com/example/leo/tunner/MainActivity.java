@@ -13,7 +13,6 @@ import android.widget.Toast;
 
 import com.example.leo.tunner.Task.ProcessingTask;
 
-import static android.graphics.Color.BLACK;
 import static android.graphics.Color.GRAY;
 import static android.graphics.Color.GREEN;
 import static android.graphics.Color.RED;
@@ -28,12 +27,14 @@ public class MainActivity extends AppCompatActivity {
 
 
     private Button strtButton, stpButton;
-    private ImageView sixthS, fifthS, forthS, thirdS, secondS, firstS, bemol, sharp, ok, f1, f2, f3, f4, f5, f6, fb, fs,fn;
+    private ImageView sixthS, fifthS, forthS, thirdS, secondS, firstS, bemol, sharp, ok, f1, f2, f3, f4, f5, f6, fb, fs;
     private TextView textFr;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+
         super.onCreate(savedInstanceState);
 
         Configuration conf = this.getResources().getConfiguration();
@@ -76,7 +77,6 @@ public class MainActivity extends AppCompatActivity {
         f1 = (ImageView) findViewById(R.id.frameFirstS);
         fb = (ImageView) findViewById(R.id.frameBemol);
         fs = (ImageView) findViewById(R.id.frameSharp);
-        fs = (ImageView) findViewById(R.id.frameNote);
 
         turnLightsOff();
 

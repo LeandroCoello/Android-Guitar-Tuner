@@ -33,10 +33,7 @@
                 android:textAppearance="@style/TextAppearance.AppCompat"
                 style="@android:style/Widget.Holo.Light.Button"
                 android:layout_marginLeft="148dp"
-                android:layout_marginStart="148dp"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true" />
+                android:layout_alignParentTop="true" />
 
             <Button
                 android:text="Stop Tuning"
@@ -47,10 +44,9 @@
                 android:textAppearance="@style/TextAppearance.AppCompat"
                 style="@android:style/Widget.Holo.Light.Button"
                 android:layout_alignParentTop="true"
-                android:layout_toRightOf="@+id/startButton"
-                android:layout_toEndOf="@+id/startButton"
-                android:layout_marginLeft="110dp"
-                android:layout_marginStart="110dp" />
+                android:layout_toRightOf="@id/startButton"
+                android:layout_marginLeft="95dp"
+                 />
         </RelativeLayout>
 
         <Space
@@ -77,10 +73,9 @@
                 android:scaleX="1.5"
                 android:scaleY="1.5"
                 android:layout_alignParentTop="true"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentEnd="true"
                 android:layout_marginTop="35dp"
-                android:layout_marginRight="115dp"/>
+                android:layout_toRightOf="@+id/frameSecondS"
+                android:layout_marginLeft="22dp"/>
 
             <ImageView
                 android:layout_width="wrap_content"
@@ -103,9 +98,8 @@
                 android:scaleX="1.5"
                 android:scaleY="1.5"
                 android:layout_alignParentTop="true"
-                android:layout_toLeftOf="@+id/firstString"
-                android:layout_toStartOf="@+id/firstString"
-                android:layout_marginRight="22dp"
+                android:layout_toRightOf="@+id/frameThirdS"
+                android:layout_marginLeft="22dp"
                 android:layout_marginTop="35dp"/>
 
             <ImageView
@@ -129,10 +123,8 @@
                 android:scaleX="1.5"
                 android:scaleY="1.5"
                 android:layout_alignParentTop="true"
-                android:layout_toLeftOf="@+id/frameSecondS"
-                android:layout_toStartOf="@+id/frameSecondS"
-                android:layout_marginRight="22dp"
-                android:layout_marginEnd="22dp"
+                android:layout_toRightOf="@+id/frameNote"
+                android:layout_marginLeft="80dp"
                 android:layout_marginTop="35dp"/>
 
             <ImageView
@@ -156,9 +148,8 @@
                 android:scaleX="1.5"
                 android:scaleY="1.5"
                 android:layout_alignParentTop="true"
-                android:layout_toRightOf="@+id/frameFifS"
-                android:layout_toEndOf="@+id/frameFifS"
-                android:layout_marginLeft="22dp"
+                android:layout_toLeftOf="@+id/frameNote"
+                android:layout_marginRight="80dp"
                 android:layout_marginTop="35dp"/>
 
             <ImageView
@@ -180,7 +171,8 @@
                 android:id="@+id/frameSixS"
                 android:tint="@color/colorPrimaryDark"
                 android:layout_marginTop="35dp"
-                android:layout_marginLeft="115dp"
+                android:layout_toLeftOf="@+id/frameFifS"
+                android:layout_marginRight="22dp"
                 android:scaleX="1.5"
                 android:scaleY="1.5"/>
 
@@ -189,10 +181,11 @@
                 android:layout_height="wrap_content"
                 app:srcCompat="@android:drawable/presence_invisible"
                 android:id="@+id/sixtString"
-                android:layout_marginTop="35dp"
-                android:layout_marginLeft="115dp"
                 android:scaleX="1.2"
-                android:scaleY="1.2"/>
+                android:scaleY="1.2"
+                android:layout_alignTop="@+id/frameSixS"
+                android:layout_alignLeft="@+id/frameSixS"
+                android:layout_alignStart="@+id/frameSixS"/>
 
             <ImageView
                 android:layout_width="wrap_content"
@@ -203,9 +196,8 @@
                 android:scaleX="1.5"
                 android:scaleY="1.5"
                 android:layout_marginTop="35dp"
-                android:layout_toRightOf="@+id/frameSixS"
-                android:layout_toEndOf="@+id/frameSixS"
-                android:layout_marginLeft="22dp"/>
+                android:layout_toLeftOf="@id/frameForthS"
+                android:layout_marginRight="22dp"/>
 
             <ImageView
                 android:layout_width="wrap_content"
@@ -334,19 +326,6 @@
                 android:layout_alignParentTop="true"
                 android:layout_centerHorizontal="true" />
 
-            <TextView
-                android:text="♭"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/textView9"
-                android:textStyle="normal|bold"
-                android:textSize="30sp"
-                android:layout_alignParentBottom="true"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:layout_marginLeft="190dp"
-                android:layout_marginBottom="30dp" />
-
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -361,21 +340,6 @@
                 android:layout_alignParentEnd="true"
                 android:layout_marginEnd="190dp"
                 android:layout_marginTop="30dp"/>
-
-            <TextView
-                android:text="#"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/textView11"
-                android:textAlignment="center"
-                android:textStyle="normal|bold"
-                android:fontFamily="sans-serif"
-                android:textSize="24sp"
-                android:layout_marginRight="190dp"
-                android:layout_marginBottom="30dp"
-                android:layout_alignParentBottom="true"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentEnd="true" />
 
 
             <ImageView
@@ -424,6 +388,29 @@
                 android:layout_below="@+id/frameOK"
                 android:layout_alignLeft="@+id/frameOK"
                 android:layout_alignStart="@+id/frameOK" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/new_bemol"
+                android:id="@+id/bemolChar"
+                android:layout_below="@id/frameBemol"
+                android:scaleX="0.7"
+                android:scaleY="0.6"
+                android:layout_marginLeft="175dp"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/sharp"
+                android:id="@+id/sharpChar"
+                android:scaleX="0.35"
+                android:scaleY="0.45"
+                android:layout_alignParentRight="true"
+                android:layout_below="@id/frameSharp"
+                android:layout_alignTop="@id/frameSharp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="173dp"/>
 
         </RelativeLayout>
 

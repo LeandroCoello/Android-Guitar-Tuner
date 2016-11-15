@@ -26,16 +26,16 @@ public class NoteConversor {
     }
 
     private void initialize(){
-        Double e2err = 0.35;
+        Double e2err = 0.45;
         Double a2err = 0.45;
         Double limEA = (e2+e2err)+ ((a2-e2err)-(e2+e2err))/2;
         Double d3err = 0.55;
         Double limAD = (a2+a2err)+ ((d3-d3err)-(a2+a2err))/2;
         Double g3err = 0.55;
         Double limDG = (d3+d3err)+ ((g3-g3err)-(d3+d3err))/2;
-        Double b3err = 0.25;
+        Double b3err = 0.35;
         Double limGB = (g3+g3err)+ ((b3-b3err)-(g3+g3err))/2;
-        Double e4err = 0.35;
+        Double e4err = 0.45;
         Double limBE = (b3+b3err)+ ((e4-e4err)-(b3+b3err))/2;
 
 
