@@ -148,7 +148,7 @@ public final class FastYin implements PitchDetector {
 	}
 
 	/**
-	 * The main flow of the YIN algorithm. Returns a pitch value in Hz or -1 if
+	 * The main_menu flow of the YIN algorithm. Returns a pitch value in Hz or -1 if
 	 * no pitch is detected.
 	 * 
 	 * @return a pitch value in Hz or -1 if no pitch is detected.

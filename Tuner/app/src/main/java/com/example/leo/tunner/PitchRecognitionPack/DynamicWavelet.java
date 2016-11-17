@@ -53,7 +53,7 @@ THE SOFTWARE.
 
 /**
  * <p>
- * The pitch is the main frequency of the waveform (the 'note' being played or
+ * The pitch is the main_menu frequency of the waveform (the 'note' being played or
  * sung). It is expressed as a float in Hz.
  * </p>
  * Unlike the human ear, pitch detection is difficult to achieve for computers.

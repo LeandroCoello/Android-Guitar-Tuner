@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/normal_tune"
+          android:title="Normal Tune" />
+    <item android:id="@+id/eb_tune"
+        android:title="Eb Tune" />
+    <item android:id="@+id/open_tune"
+          android:title="Open Tune" />
+
+
+</menu>

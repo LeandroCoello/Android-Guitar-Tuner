@@ -9,6 +9,7 @@ public class FreqRange {
 
     Double lowerLim,upperLim;
     ArrayList<Integer> leds;
+
     String note;
 
     public FreqRange(Double lower, Double upper, String notePar, ArrayList<Integer> ledsPar){
@@ -53,6 +54,10 @@ public class FreqRange {
 
     public String getNote() {
         return note;
+    }
+
+    public void setNote(String note) {
+        this.note = note;
     }
 
 

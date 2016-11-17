@@ -33,7 +33,7 @@ package com.example.leo.tunner.PitchRecognitionPack;
  * lagged version of itself.
  * </p>
  * <p>
- * The main bulk of the code is written by Eder de Souza for the <a
+ * The main_menu bulk of the code is written by Eder de Souza for the <a
  * href="http://jaudio.sf.net">jAudio</a> framework. Adapted for TarsosDSP by
  * Joren Six.
  * </p>
