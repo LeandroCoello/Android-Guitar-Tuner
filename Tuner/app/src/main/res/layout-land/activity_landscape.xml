@@ -17,7 +17,7 @@
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="40dp" />
+            android:layout_height="25dp" />
 
 
         <RelativeLayout
@@ -33,7 +33,8 @@
                 android:textAppearance="@style/TextAppearance.AppCompat"
                 style="@android:style/Widget.Holo.Light.Button"
                 android:layout_marginLeft="148dp"
-                android:layout_alignParentTop="true" />
+                android:layout_alignParentTop="true"
+                android:layout_alignParentLeft="true"/>
 
             <Button
                 android:text="Stop Tuning"
@@ -44,8 +45,8 @@
                 android:textAppearance="@style/TextAppearance.AppCompat"
                 style="@android:style/Widget.Holo.Light.Button"
                 android:layout_alignParentTop="true"
-                android:layout_toRightOf="@id/startButton"
-                android:layout_marginLeft="95dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="150dp"
                  />
         </RelativeLayout>
 
@@ -214,7 +215,8 @@
                 android:text="6E"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/textView6E"
+                android:id="@+id/textView6"
+                android:textColor="@color/colorPrimaryDark"
                 android:layout_above="@+id/fifthString"
                 android:layout_alignLeft="@+id/sixtString"
                 android:layout_marginBottom="10dp"
@@ -225,9 +227,10 @@
                 android:text="5A"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/textView5A"
-                android:layout_alignBaseline="@+id/textView6E"
-                android:layout_alignBottom="@+id/textView6E"
+                android:id="@+id/textView5"
+                android:textColor="@color/colorPrimaryDark"
+                android:layout_alignBaseline="@+id/textView6"
+                android:layout_alignBottom="@+id/textView6"
                 android:layout_alignLeft="@+id/fifthString"
                 android:layout_alignStart="@+id/fifthString"
                 android:textStyle="normal|bold" />
@@ -236,9 +239,10 @@
                 android:text="2B"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/textView2B"
-                android:layout_alignBaseline="@+id/textView3G"
-                android:layout_alignBottom="@+id/textView3G"
+                android:id="@+id/textView2"
+                android:textColor="@color/colorPrimaryDark"
+                android:layout_alignBaseline="@+id/textView3"
+                android:layout_alignBottom="@+id/textView3"
                 android:layout_alignLeft="@+id/secondString"
                 android:layout_alignStart="@+id/secondString"
                 android:textStyle="normal|bold" />
@@ -247,9 +251,10 @@
                 android:text="1E"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/textView1E"
-                android:layout_alignBaseline="@+id/textView2B"
-                android:layout_alignBottom="@+id/textView2B"
+                android:id="@+id/textView1"
+                android:textColor="@color/colorPrimaryDark"
+                android:layout_alignBaseline="@+id/textView2"
+                android:layout_alignBottom="@+id/textView2"
                 android:layout_alignLeft="@+id/firstString"
                 android:layout_alignStart="@+id/firstString"
                 android:textStyle="normal|bold" />
@@ -258,43 +263,44 @@
                 android:text="4D"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/textView4D"
+                android:id="@+id/textView4"
+                android:textColor="@color/colorPrimaryDark"
                 android:textStyle="normal|bold"
                 android:layout_alignParentTop="true"
                 android:layout_alignLeft="@+id/frameForthS"
                 android:layout_alignStart="@+id/frameForthS"
-                android:layout_alignBaseline="@+id/textView6E"/>
+                android:layout_alignBaseline="@+id/textView6"/>
 
             <TextView
                 android:text="3G"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/textView3G"
+                android:id="@+id/textView3"
+                android:textColor="@color/colorPrimaryDark"
                 android:textStyle="normal|bold"
-                android:layout_alignBottom="@+id/textView6E"
+                android:layout_alignBottom="@+id/textView6"
                 android:layout_alignRight="@+id/frameThirdS"
                 android:layout_alignEnd="@+id/frameThirdS" />
 
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="65dp"
+                android:layout_height="60dp"
                 app:srcCompat="@android:drawable/checkbox_off_background"
                 android:id="@+id/frameNote"
                 android:tint="@color/colorPrimaryDark"
-                android:scaleX="3"
-                android:scaleY="3"
+                android:layout_centerHorizontal="true"
                 android:layout_centerVertical="true"
-                android:layout_centerHorizontal="true" />
+                android:layout_marginTop="25dp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/textFr"
-                android:layout_alignLeft="@+id/frameNote"
-                android:layout_alignStart="@+id/frameNote"
+                android:layout_alignStart="@id/frameNote"
+                android:layout_marginLeft="22.15dp"
                 android:layout_centerVertical="true"
                 android:textSize="65sp"
-                android:layout_marginTop="5dp"/>
+                android:layout_marginTop="5dp" />
 
         </RelativeLayout>
 

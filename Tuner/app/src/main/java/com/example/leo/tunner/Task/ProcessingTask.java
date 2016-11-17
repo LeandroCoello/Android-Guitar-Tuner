@@ -3,10 +3,13 @@ package com.example.leo.tunner.Task;
 import android.media.AudioFormat;
 import android.media.AudioRecord;
 import android.media.MediaRecorder;
+import android.media.audiofx.NoiseSuppressor;
+import android.media.audiofx.AutomaticGainControl;
 import android.os.AsyncTask;
 import android.widget.TextView;
 import java.lang.Short;
 
+import com.example.leo.tunner.NoteDisplay.ConversorType;
 import com.example.leo.tunner.NoteDisplay.NoteConversor;
 import com.example.leo.tunner.PitchRecognitionPack.AMDF;
 import com.example.leo.tunner.PitchRecognitionPack.DynamicWavelet;
@@ -26,10 +29,11 @@ public class ProcessingTask extends AsyncTask<Float, Float, Float> {
 
 
     MainActivity mAct;
-    TextView textFr;
-    public ProcessingTask(MainActivity ma){
-        mAct = ma;
+    NoteConversor noteConversor;
+    public ProcessingTask(MainActivity ma, NoteConversor nc){
 
+        mAct = ma;
+        noteConversor = nc;
     }
 
 
@@ -38,15 +42,17 @@ public class ProcessingTask extends AsyncTask<Float, Float, Float> {
 
         //McLeodPitchMethod mpm = new McLeodPitchMethod(SAMPLE_RATE, NUMBER_OF_SAMPLES);
         //AMDF amdf = new AMDF(SAMPLE_RATE, NUMBER_OF_SAMPLES);
-        Yin yinM = new Yin(SAMPLE_RATE, NUMBER_OF_SAMPLES);
+        //Yin yinM = new Yin(SAMPLE_RATE, NUMBER_OF_SAMPLES);
         //DynamicWavelet dw = new DynamicWavelet(SAMPLE_RATE, NUMBER_OF_SAMPLES);
-        //FastYin fy = new FastYin(SAMPLE_RATE, NUMBER_OF_SAMPLES);
+        FastYin fy = new FastYin(SAMPLE_RATE, NUMBER_OF_SAMPLES);
 
         N = AudioRecord.getMinBufferSize(SAMPLE_RATE, AudioFormat.CHANNEL_IN_MONO, AudioFormat.ENCODING_PCM_16BIT);
         samples = new short[NUMBER_OF_SAMPLES];
 
         AudioRecord recorder = new AudioRecord(MediaRecorder.AudioSource.VOICE_RECOGNITION, SAMPLE_RATE, AudioFormat.CHANNEL_IN_MONO, AudioFormat.ENCODING_PCM_16BIT, N * 10);
         recorder.startRecording();
+
+
 
         while(mAct.isListening()) {
 
@@ -56,9 +62,9 @@ public class ProcessingTask extends AsyncTask<Float, Float, Float> {
 
             //PitchDetectionResult pr = mpm.getPitch(infsamples); //Bad Results
             //PitchDetectionResult pr = amdf.getPitch(infsamples); //Bad Results
-            PitchDetectionResult pr = yinM.getPitch(infsamples); //Best Results
+            //PitchDetectionResult pr = yinM.getPitch(infsamples); //Best Results
             //PitchDetectionResult pr = dw.getPitch(infsamples); //Bad Results
-            //PitchDetectionResult pr = fy.getPitch(infsamples); //Goood Results
+            PitchDetectionResult pr = fy.getPitch(infsamples); //Goood Results
 
 
             Double ad1 = 0.0;
@@ -85,9 +91,8 @@ public class ProcessingTask extends AsyncTask<Float, Float, Float> {
     protected void onProgressUpdate(Float... values) {
 
         mAct.turnLightsOff();
-        NoteConversor nc = new NoteConversor();
-        String st = nc.getNote(values[0],mAct);
 
+        String st = noteConversor.getNote(values[0],mAct);
         mAct.updateTxtFr(st);
     }
 
