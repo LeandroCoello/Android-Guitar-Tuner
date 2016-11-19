@@ -1,6 +1,8 @@
 package com.example.leo.tunner.NoteDisplay;
 
 
+import com.example.leo.tunner.Activity.Tuner;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -10,6 +12,10 @@ public class ConversorType8 extends ConversorType {
     private Double eighthString = 49.00;  // g1
     private Double seventhString = 61.74; //b1
     ArrayList<FreqRange> freqRangeList;
+
+    public static final ArrayList<Double> STANDARD =  new ArrayList<Double>(Arrays.asList(49.00,61.74,82.41,110.00,146.83,196.00,246.94,329.63));
+    public static final ArrayList<String> STANDARD_NOTES = new ArrayList<String>(Arrays.asList("G","B","E","A","D","G","B","E"));
+    public static final ArrayList<String> INIT_STANDARD_NOTES = new ArrayList<String> (Arrays.asList("8G","7B","6E","5A","4D","3G","2B","1E"));
 
     public ConversorType8() {
 
@@ -49,4 +55,6 @@ public class ConversorType8 extends ConversorType {
 
         return freqRangeList;
     }
+
+
 }

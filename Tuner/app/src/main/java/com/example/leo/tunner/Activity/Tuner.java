@@ -3,10 +3,7 @@ package com.example.leo.tunner.Activity;
 import android.content.res.Configuration;
 import android.graphics.Typeface;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -26,11 +23,10 @@ import com.example.leo.tunner.R;
 import com.example.leo.tunner.Task.ProcessingTask;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
-import static android.graphics.Color.GRAY;
 import static android.graphics.Color.GREEN;
 import static android.graphics.Color.RED;
-import static android.graphics.Color.TRANSPARENT;
 
 public class Tuner extends AppCompatActivity {
 
@@ -42,7 +38,9 @@ public class Tuner extends AppCompatActivity {
     private Button strtButton, stpButton;
     private ImageView eightS,seventhS,sixthS, fifthS, forthS, thirdS, secondS, firstS, bemol, sharp, ok, fn;
     private TextView textFr, firstTV,secondTV, thirdTV, forthTV, fifthTV, sixthTV, seventhTV, eightTV;
-    private Type type;
+    private TunerType4 type;
+    private ArrayList<TextView> textViewList;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,14 +50,13 @@ public class Tuner extends AppCompatActivity {
 
         Configuration conf = this.getResources().getConfiguration();
 
-        type = new Type();
 
         ArrayList<Integer> params = getIntent().getExtras().getIntegerArrayList("params");
         layout_portrait = params.get(0);
         layout_landscape = params.get(1);
         typeCode = params.get(2);
 
-        setNoteConversor(typeCode);
+        seUpTypes(typeCode);
 
         if(conf.orientation == Configuration.ORIENTATION_PORTRAIT){
 
@@ -93,8 +90,9 @@ public class Tuner extends AppCompatActivity {
         textFr.setTypeface(tf);
         textFr.setTextColor(GREEN);
 
-        type.initializeStrings(typeCode,this);
+        type.initializeStrings(this);
 
+        textViewList = new ArrayList<TextView> (Arrays.asList(eightTV,seventhTV,sixthTV,fifthTV,forthTV,thirdTV,secondTV,firstTV));
 
         turnLightsOff();
 
@@ -102,22 +100,26 @@ public class Tuner extends AppCompatActivity {
 
 
 
-    public void setNoteConversor(int tc){
+    public void seUpTypes(int tc){
         ConversorType t ;
         switch (tc){
             case 0:
                 t = new ConversorType();
                 t.initialize();
+                type = new TunerType6();
                 break;
             case 1:
                 t = new ConversorType8();
+                type = new TunerType8();
                 break;
             case 2:
                 t= new ConversorType4();
+                type = new TunerType4();
                 break;
             default:
                 t = new ConversorType();
                 t.initialize();
+                type = new TunerType6();
 
         }
         noteConversor = new NoteConversor(t);
@@ -202,7 +204,7 @@ public class Tuner extends AppCompatActivity {
         sharp.clearColorFilter();
         ok.clearColorFilter();
 
-        type.turnsLightsOff(typeCode,this);
+        type.turnsLightsOff(this);
     }
 
     public boolean isListening(){
@@ -227,68 +229,32 @@ public class Tuner extends AppCompatActivity {
 
         MenuInflater inflater = getMenuInflater();
 
-        if(typeCode == 0) {
-            inflater.inflate(R.menu.main_menu, menu);
-        }
-
+        type.inflateMenu(inflater, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
-        stopRecording();
+            stopRecording();
 
-        switch (item.getItemId()) {
-            case R.id.half_down_tune:
-                displayToast("Half down tune selected!");
-                updateTextViews("half_down");
+            boolean res = type.onItemSelected(item, this);
+            if(!res) {return super.onOptionsItemSelected(item);}
 
-                ConversorType ctype = new ConversorType();
-                ctype.setEbTuning();
-                noteConversor = new NoteConversor(ctype);
+        return res;
 
-                return true;
-
-            case R.id.standard_tune:
-
-                displayToast("Standard tune selected!");
-                updateTextViews("standard");
-
-                ConversorType ctype1 = new ConversorType();
-                ctype1.initialize();
-                noteConversor = new NoteConversor(ctype1);
-
-                return true;
-
-            case R.id.open_tune:
-                displayToast("Open tune selected!");
-                updateTextViews("standard");
-                return true;
-
-            default:
-
-                return super.onOptionsItemSelected(item);
-
-        }
     }
 
-
+/*
 
     public void updateTextViews(String tune){
-
 
 
         switch(tune) {
 
             case "standard":
 
-                sixthTV.setText("6E");
-                fifthTV.setText("5A");
-                forthTV.setText("4D");
-                thirdTV.setText("3G");
-                secondTV.setText("2B");
-                firstTV.setText("1E");
+                setTextView(ConversorType.INIT_STANDARD_NOTES);
 
                 fn.setScaleX(1.0f);
 
@@ -302,13 +268,8 @@ public class Tuner extends AppCompatActivity {
                 break;
 
             case "half_down":
-                sixthTV.setText("Eb");
-                fifthTV.setText("Ab");
-                forthTV.setText("C#");
-                thirdTV.setText("F#");
-                secondTV.setText("Bb");
-                firstTV.setText("Eb");
 
+                setTextView(ConversorType.HALF_DOWN_NOTES);
 
                 fn.setScaleX(1.5f);
 
@@ -320,7 +281,7 @@ public class Tuner extends AppCompatActivity {
                 textFr.setLayoutParams(lp2);
                 break;
         }
-    }
+    }*/
 
     @Override
     public void onBackPressed(){
@@ -328,6 +289,22 @@ public class Tuner extends AppCompatActivity {
         super.onBackPressed();
     }
 
+    public void setTextView(ArrayList<String> notes){
+
+        int h = 0;
+        if(notes.size() == 6){
+           h=2;
+        }
+        if(notes.size() == 4){
+            h=4;
+        }
+        int index= 0;
+        for(int j= h; j<textViewList.size(); j++){
+            textViewList.get(j).setText(notes.get(index));
+            index++;
+        }
+
+    }
 
 
     public void setFirstS(ImageView firstS) {
@@ -369,6 +346,7 @@ public class Tuner extends AppCompatActivity {
     public void setEightTV(TextView eightTV) {
         this.eightTV = eightTV;
     }
+
     public void setFirstTV(TextView firstTV) {
         this.firstTV = firstTV;
     }
@@ -392,6 +370,7 @@ public class Tuner extends AppCompatActivity {
     public void setSixthTV(TextView sixthTV) {
         this.sixthTV = sixthTV;
     }
+
     public ImageView getEightS() {
         return eightS;
     }
@@ -406,6 +385,18 @@ public class Tuner extends AppCompatActivity {
 
     public ImageView getFifthS() {
         return fifthS;
+    }
+
+    public void setNoteConversor(NoteConversor noteConversor) {
+        this.noteConversor = noteConversor;
+    }
+
+    public TextView getTextFr() {
+        return textFr;
+    }
+
+    public ImageView getFn() {
+        return fn;
     }
 
 }

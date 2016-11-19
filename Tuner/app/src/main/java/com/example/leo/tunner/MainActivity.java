@@ -95,6 +95,16 @@ public class MainActivity extends AppCompatActivity {
 
     public void startSixSBassTuner(View v){
 
+        Intent i = new Intent(this,Tuner.class);
+
+        ArrayList<Integer> par = new ArrayList<Integer>();
+        par.add(0,R.layout.activity_tuner);
+        par.add(1,R.layout.activity_tuner_landscape);
+        par.add(2,0);
+
+        i.putExtra("params",par);
+        startActivity(i);
+
     }
 
     public void displayToast(String text){

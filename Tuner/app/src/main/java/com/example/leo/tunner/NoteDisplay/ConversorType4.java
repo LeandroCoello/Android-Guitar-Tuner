@@ -1,17 +1,22 @@
 package com.example.leo.tunner.NoteDisplay;
 
+import com.example.leo.tunner.Activity.Tuner;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 
 public class ConversorType4 extends ConversorType{
 
     //Hertz
-    private static Double BASS_FIFTH_STRING = 30.87; //B0
     private static Double BASS_FORTH_STRING = 41.204; //E1
     private static Double BASS_THIRD_STRING = 55.00; //A1
     private static Double BASS_SECOND_STRING = 73.416; //D2
     private static Double BASS_FIRST_STRING = 97.99;  //G2
     Double error = 0.25;
+
+    public static final ArrayList<Double> STANDARD =  new ArrayList<Double>(Arrays.asList(41.204,55.00,73.416,97.99));
+    public static final ArrayList<String> STANDARD_NOTES = new ArrayList<String>(Arrays.asList("E","A","D","G"));
+    public static final ArrayList<String> INIT_STANDARD_NOTES = new ArrayList<String> (Arrays.asList("4E","3A","2D","1G"));
 
     public ConversorType4() {
 
@@ -57,4 +62,6 @@ public class ConversorType4 extends ConversorType{
 
        return freqRangeList;
     }
+
+
 }
