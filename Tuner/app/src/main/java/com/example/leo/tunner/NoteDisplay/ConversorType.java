@@ -1,16 +1,7 @@
 package com.example.leo.tunner.NoteDisplay;
 
-import android.widget.ImageView;
-import android.widget.TextView;
-
-import com.example.leo.tunner.Activity.Tuner;
-import com.example.leo.tunner.R;
-
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collection;
-import java.util.List;
 
 
 public class ConversorType  {
@@ -37,10 +28,6 @@ public class ConversorType  {
     public static final ArrayList<String> INIT_DROPD_NOTES = new ArrayList<String> (Arrays.asList("6D","5A","4D","3G","2B","1E"));
 
 
-
-    public ConversorType() {
-
-    }
 
     public void initialize(){
         Double e2err = 0.25;
@@ -95,6 +82,28 @@ public class ConversorType  {
     }
 
 
+    public void setTuning(ArrayList<Double> freqs,ArrayList<String> notes){
+        setSixthString(freqs.get(0));
+        setFifthString(freqs.get(1));
+        setForthString(freqs.get(2));
+        setThirdString(freqs.get(3));
+        setSecondString(freqs.get(4));
+        setFirstString(freqs.get(5));
+
+        initialize();
+
+        int index = 0;
+        for(int i = 0; i<notes.size(); i++){
+
+            for(int j=0; j<3;j++){
+                freqRangeList.get(index).setNote(notes.get(i));
+                index ++;
+            }
+        }
+
+    }
+
+
     public ArrayList<FreqRange> getFreqRangeList(){
 
         return freqRangeList;
@@ -123,68 +132,6 @@ public class ConversorType  {
 
     public void setFirstString(Double firstString) {
         this.firstString = firstString;
-    }
-
-    public void setEbTuning(){
-
-        setSixthString(77.78); //Eb
-        setFifthString(103.8); //Ab
-        setForthString(138.6); //C#
-        setThirdString(185.0); //F#
-        setSecondString(233.1); //Bb
-        setFirstString(311.1); //Eb
-
-        initialize();
-
-        for(int i =0; i < freqRangeList.size(); i++){
-
-            switch (freqRangeList.get(i).getNote()){
-                case "E":
-                    freqRangeList.get(i).setNote("Eb");
-                    break;
-
-                case "A":
-                    freqRangeList.get(i).setNote("Ab");
-                    break;
-
-                case "D":
-                    freqRangeList.get(i).setNote("C#");
-                    break;
-
-                case "G":
-                    freqRangeList.get(i).setNote("F#");
-                    break;
-
-                case "B":
-                    freqRangeList.get(i).setNote("Bb");
-                    break;
-            }
-
-        }
-
-
-
-    }
-
-    public void setTuning(ArrayList<Double> freqs,ArrayList<String> notes){
-        setSixthString(freqs.get(0));
-        setFifthString(freqs.get(1));
-        setForthString(freqs.get(2));
-        setThirdString(freqs.get(3));
-        setSecondString(freqs.get(4));
-        setFirstString(freqs.get(5));
-
-        initialize();
-
-        int index = 0;
-        for(int i = 0; i<notes.size(); i++){
-
-            for(int j=0; j<3;j++){
-                freqRangeList.get(index).setNote(notes.get(i));
-                index ++;
-            }
-        }
-
     }
 
 

@@ -12,8 +12,6 @@ import com.example.leo.tunner.NoteDisplay.ConversorType;
 import com.example.leo.tunner.NoteDisplay.NoteConversor;
 import com.example.leo.tunner.R;
 
-import java.util.ArrayList;
-
 
 public class TunerType6 extends TunerType4 {
 

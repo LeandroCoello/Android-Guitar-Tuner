@@ -7,11 +7,8 @@ import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.leo.tunner.NoteDisplay.ConversorType;
-import com.example.leo.tunner.NoteDisplay.ConversorType8;
-import com.example.leo.tunner.R;
 
-import java.util.ArrayList;
+import com.example.leo.tunner.R;
 
 public class TunerType8 extends TunerType6 {
 

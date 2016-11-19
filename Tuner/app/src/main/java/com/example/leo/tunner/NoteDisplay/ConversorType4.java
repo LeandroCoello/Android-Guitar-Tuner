@@ -1,7 +1,5 @@
 package com.example.leo.tunner.NoteDisplay;
 
-import com.example.leo.tunner.Activity.Tuner;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -18,14 +16,18 @@ public class ConversorType4 extends ConversorType{
     public static final ArrayList<String> STANDARD_NOTES = new ArrayList<String>(Arrays.asList("E","A","D","G"));
     public static final ArrayList<String> INIT_STANDARD_NOTES = new ArrayList<String> (Arrays.asList("4E","3A","2D","1G"));
 
-    public ConversorType4() {
+    public static final ArrayList<Double> HALF_DOWN =  new ArrayList<Double>(Arrays.asList(38.89,51.91,69.30,92.50));
+    public static final ArrayList<String> HALF_DOWN_NOTES = new ArrayList<String>(Arrays.asList("Eb","Ab","C#","F#"));
 
-        setFirstString(BASS_FIRST_STRING);
-        setSecondString(BASS_SECOND_STRING);
-        setThirdString(BASS_THIRD_STRING);
-        setForthString(BASS_FORTH_STRING);
+    public static final ArrayList<Double> DROP_D =  new ArrayList<Double>(Arrays.asList(41.204,55.00,73.416,97.99));
+    public static final ArrayList<String> DROP_D_NOTES = new ArrayList<String>(Arrays.asList("E","A","D","G"));
+    public static final ArrayList<String> INIT_DROPD_NOTES = new ArrayList<String> (Arrays.asList("4D","3A","2D","1G"));
 
-        ArrayList<FreqRange> freqRangeList = new ArrayList<FreqRange>();
+
+    @Override
+    public void initialize() {
+
+        freqRangeList = new ArrayList<FreqRange>();
         Double limEA = (forthString + error)+ ((thirdString - error)-(forthString + error))/2;
         Double limAD = (thirdString + error)+ ((secondString - error)-(thirdString + error))/2;
         Double limDG = (secondString + error)+ ((firstString - error)-(secondString + error))/2;
@@ -57,10 +59,24 @@ public class ConversorType4 extends ConversorType{
         freqRangeList.add(highG);
     }
 
-    @Override
-    public ArrayList<FreqRange> getFreqRangeList(){
 
-       return freqRangeList;
+    public void setTuning(ArrayList<Double> freqs,ArrayList<String> notes){
+        setForthString(freqs.get(0));
+        setThirdString(freqs.get(1));
+        setSecondString(freqs.get(2));
+        setFirstString(freqs.get(3));
+
+        initialize();
+
+        int index = 0;
+        for(int i = 0; i<notes.size(); i++){
+
+            for(int j=0; j<3;j++){
+                freqRangeList.get(index).setNote(notes.get(i));
+                index ++;
+            }
+        }
+
     }
 
 

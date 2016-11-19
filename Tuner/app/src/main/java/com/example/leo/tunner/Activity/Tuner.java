@@ -8,10 +8,8 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -99,7 +97,6 @@ public class Tuner extends AppCompatActivity {
     }
 
 
-
     public void seUpTypes(int tc){
         ConversorType t ;
         switch (tc){
@@ -114,6 +111,7 @@ public class Tuner extends AppCompatActivity {
                 break;
             case 2:
                 t= new ConversorType4();
+                t.setTuning(ConversorType4.STANDARD,ConversorType4.STANDARD_NOTES);
                 type = new TunerType4();
                 break;
             default:
@@ -127,7 +125,6 @@ public class Tuner extends AppCompatActivity {
 
     public void startRecording(View v){
 
-
         strtButton.setEnabled(false);
         stpButton.setEnabled(true);
         isListening = true;
@@ -139,6 +136,7 @@ public class Tuner extends AppCompatActivity {
     }
 
     public void stopRecording(View v){
+
         stopRecording();
     }
 
@@ -245,43 +243,6 @@ public class Tuner extends AppCompatActivity {
 
     }
 
-/*
-
-    public void updateTextViews(String tune){
-
-
-        switch(tune) {
-
-            case "standard":
-
-                setTextView(ConversorType.INIT_STANDARD_NOTES);
-
-                fn.setScaleX(1.0f);
-
-
-                RelativeLayout.LayoutParams lp = (RelativeLayout.LayoutParams) textFr.getLayoutParams();
-                lp.addRule(RelativeLayout.CENTER_VERTICAL);
-                lp.addRule(RelativeLayout.ALIGN_START,R.id.frameNote);
-                lp.leftMargin = 44;
-                textFr.setLayoutParams(lp);
-
-                break;
-
-            case "half_down":
-
-                setTextView(ConversorType.HALF_DOWN_NOTES);
-
-                fn.setScaleX(1.5f);
-
-
-                RelativeLayout.LayoutParams lp2 = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-                lp2.addRule(RelativeLayout.CENTER_VERTICAL);
-                lp2.addRule(RelativeLayout.ALIGN_START,R.id.frameNote);
-                lp2.setMargins(21,0,0,0);
-                textFr.setLayoutParams(lp2);
-                break;
-        }
-    }*/
 
     @Override
     public void onBackPressed(){
