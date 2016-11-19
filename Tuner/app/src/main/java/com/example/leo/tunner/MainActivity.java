@@ -6,6 +6,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
+
 import com.example.leo.tunner.Activity.Tuner;
 import java.util.ArrayList;
 
@@ -72,10 +74,13 @@ public class MainActivity extends AppCompatActivity {
         par.add(2,1);
 
         i.putExtra("params",par);
+
         startActivity(i);
     }
 
     public void startFourSBassTuner(View v){
+
+
         Intent i = new Intent(this,Tuner.class);
 
         ArrayList<Integer> par = new ArrayList<Integer>();
@@ -89,6 +94,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void startSixSBassTuner(View v){
+
+    }
+
+    public void displayToast(String text){
+        Toast toast = Toast.makeText(this.getApplicationContext(), text,Toast.LENGTH_SHORT);
+        toast.show();
 
     }
 

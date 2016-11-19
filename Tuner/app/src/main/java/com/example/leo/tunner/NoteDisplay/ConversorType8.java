@@ -12,7 +12,11 @@ public class ConversorType8 extends ConversorType {
     ArrayList<FreqRange> freqRangeList;
 
     public ConversorType8() {
-        freqRangeList = super.getFreqRangeList();
+
+        ConversorType ct = new ConversorType();
+        ct.initialize();
+
+        freqRangeList = ct.getFreqRangeList();
 
         Double error = 0.25;
         Double limGB = (eighthString + error) + ((seventhString - error) - (eighthString + error))/2;

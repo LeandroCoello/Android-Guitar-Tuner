@@ -72,7 +72,7 @@ public class Tuner extends AppCompatActivity {
         }
 
 
-        initialize();
+       initialize();
 
 
     }
@@ -102,9 +102,9 @@ public class Tuner extends AppCompatActivity {
 
 
 
-    public void setNoteConversor(int id){
+    public void setNoteConversor(int tc){
         ConversorType t ;
-        switch (typeCode){
+        switch (tc){
             case 0:
                 t = new ConversorType();
                 t.initialize();
@@ -125,12 +125,13 @@ public class Tuner extends AppCompatActivity {
 
     public void startRecording(View v){
 
+
         strtButton.setEnabled(false);
         stpButton.setEnabled(true);
         isListening = true;
 
-       ptask = new ProcessingTask(this,noteConversor);
-       ptask.execute();
+        ptask = new ProcessingTask(this,noteConversor);
+        ptask.execute();
 
 
     }
