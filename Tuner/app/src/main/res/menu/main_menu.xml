@@ -2,10 +2,10 @@
 <menu
     xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item android:id="@+id/normal_tune"
-          android:title="Normal Tune" />
-    <item android:id="@+id/eb_tune"
-        android:title="Eb Tune" />
+    <item android:id="@+id/standard_tune"
+          android:title="Standard Tune" />
+    <item android:id="@+id/half_down_tune"
+        android:title="Half Down Tune" />
     <item android:id="@+id/open_tune"
           android:title="Open Tune" />
 

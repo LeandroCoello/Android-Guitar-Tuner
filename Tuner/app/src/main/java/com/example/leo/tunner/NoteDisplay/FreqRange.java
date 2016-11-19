@@ -1,6 +1,7 @@
 package com.example.leo.tunner.NoteDisplay;
 
 
+import com.example.leo.tunner.Activity.Tuner;
 import com.example.leo.tunner.MainActivity;
 
 import java.util.ArrayList;
@@ -61,9 +62,9 @@ public class FreqRange {
     }
 
 
-    public void turnOnLeds(MainActivity mact){
+    public void turnOnLeds(Tuner tuner){
 
-        for(int i = 0; i< leds.size(); i++) mact.turnLightOn(leds.get(i));
+        for(int i = 0; i< leds.size(); i++) tuner.turnLightOn(leds.get(i));
     }
 
 

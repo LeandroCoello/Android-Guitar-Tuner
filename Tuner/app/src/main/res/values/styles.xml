@@ -1,8 +1,7 @@
 <resources>
 
 
-    <style name="CustomActionBarTheme"
-        parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="CustomActionBarTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <item name="colorPrimary">@color/colorPrimaryDark</item>
         <item name="android:popupMenuStyle">@style/CustomActionBarTheme</item>
         <item name="android:itemTextAppearance">@style/TextAppearance</item>
@@ -11,13 +10,21 @@
 
     </style>
 
-    <style name="CustomPopupMenu"
-        parent="@android:style/Widget.Holo.ListPopupWindow">
+    <style name="CustomPopupMenu" parent="@android:style/Widget.Holo.ListPopupWindow">
         <item name="android:background">@color/colorPrimaryDark</item>
     </style>
 
     <style name="TextAppearance">
         <item name="android:textColor">@color/colorText</item>
     </style>
+
+    <style name="CustomActionBarTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="CustomActionBarTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="CustomActionBarTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
 </resources>

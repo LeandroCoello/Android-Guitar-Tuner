@@ -1,6 +1,7 @@
 package com.example.leo.tunner.NoteDisplay;
 
 
+import com.example.leo.tunner.Activity.Tuner;
 import com.example.leo.tunner.MainActivity;
 
 import java.util.ArrayList;
@@ -20,7 +21,7 @@ public class NoteConversor {
     }
 
 
-    public String getNote(Float frequency, MainActivity mAct){
+    public String getNote(Float frequency, Tuner tuner){
         Double fr = frequency.doubleValue();
         String note = " ";
         FreqRange noteF = null;
@@ -39,7 +40,7 @@ public class NoteConversor {
         }
         if(noteF !=null) {
             note = noteF.getNote();
-            noteF.turnOnLeds(mAct);
+            noteF.turnOnLeds(tuner);
         }
         return note;
     }
@@ -48,7 +49,6 @@ public class NoteConversor {
     public ConversorType getType() {
         return type;
     }
-
 
 
 }

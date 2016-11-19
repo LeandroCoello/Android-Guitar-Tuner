@@ -3,21 +3,14 @@ package com.example.leo.tunner.Task;
 import android.media.AudioFormat;
 import android.media.AudioRecord;
 import android.media.MediaRecorder;
-import android.media.audiofx.NoiseSuppressor;
-import android.media.audiofx.AutomaticGainControl;
 import android.os.AsyncTask;
-import android.widget.TextView;
+
 import java.lang.Short;
 
-import com.example.leo.tunner.NoteDisplay.ConversorType;
+import com.example.leo.tunner.Activity.Tuner;
 import com.example.leo.tunner.NoteDisplay.NoteConversor;
-import com.example.leo.tunner.PitchRecognitionPack.AMDF;
-import com.example.leo.tunner.PitchRecognitionPack.DynamicWavelet;
 import com.example.leo.tunner.PitchRecognitionPack.FastYin;
-import com.example.leo.tunner.PitchRecognitionPack.McLeodPitchMethod;
 import com.example.leo.tunner.PitchRecognitionPack.PitchDetectionResult;
-import com.example.leo.tunner.PitchRecognitionPack.Yin;
-import com.example.leo.tunner.MainActivity;
 
 public class ProcessingTask extends AsyncTask<Float, Float, Float> {
 
@@ -28,11 +21,11 @@ public class ProcessingTask extends AsyncTask<Float, Float, Float> {
     private static int N;
 
 
-    MainActivity mAct;
+    Tuner tuner;
     NoteConversor noteConversor;
-    public ProcessingTask(MainActivity ma, NoteConversor nc){
+    public ProcessingTask(Tuner t, NoteConversor nc){
 
-        mAct = ma;
+        tuner = t;
         noteConversor = nc;
     }
 
@@ -54,7 +47,7 @@ public class ProcessingTask extends AsyncTask<Float, Float, Float> {
 
 
 
-        while(mAct.isListening()) {
+        while(tuner.isListening()) {
 
             recorder.read(samples, 0, samples.length);
             //float[] infsamples = increaseGain(shortToFloat(samples),3f);
@@ -90,15 +83,15 @@ public class ProcessingTask extends AsyncTask<Float, Float, Float> {
     @Override
     protected void onProgressUpdate(Float... values) {
 
-        mAct.turnLightsOff();
+        tuner.turnLightsOff();
 
-        String st = noteConversor.getNote(values[0],mAct);
-        mAct.updateTxtFr(st);
+        String st = noteConversor.getNote(values[0], tuner);
+        tuner.updateTxtFr(st);
     }
 
     @Override
     protected void onPostExecute(Float result) {
-        mAct.updateTxtFr(" ");
+        tuner.updateTxtFr(" ");
 
     }
 

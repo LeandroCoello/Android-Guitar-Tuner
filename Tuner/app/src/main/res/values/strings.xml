@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Guitar Tuner</string>
+    <string name="title_activity_six_strings_guitar_tuner">Guitar Tuner</string>
 </resources>

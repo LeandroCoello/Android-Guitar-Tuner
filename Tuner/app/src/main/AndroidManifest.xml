@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.leo.tunner" >
+    package="com.example.leo.tunner">
+
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
 
     <application
         android:allowBackup="true"
@@ -8,13 +10,17 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/CustomActionBarTheme">
-        <activity android:name=".MainActivity" >
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".Activity.Tuner"
+            android:label="@string/title_activity_six_strings_guitar_tuner"
+            android:theme="@style/CustomActionBarTheme"></activity>
     </application>
-    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+
 </manifest>

@@ -24,29 +24,9 @@
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="70dp" />
+            android:layout_height="50dp" />
 
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <Button
-                android:text="Six Strings\nGuitar"
-                android:layout_width="110dp"
-                android:layout_height="wrap_content"
-                android:id="@+id/sixSButton"
-                android:layout_alignParentTop="true"
-                android:layout_centerHorizontal="true"
-                android:onClick="startSixSGuitarTuner"
-                android:textAppearance="@style/TextAppearance.AppCompat"
-                style="@android:style/Widget.Holo.Light.Button"
-                android:textAlignment="center" />
-        </RelativeLayout>
-
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="35dp" />
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
@@ -57,10 +37,28 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/eigthSButton"
                 android:onClick="startEightSGuitarTuner"
-                android:layout_alignParentTop="true"
-                android:layout_centerHorizontal="true"
                 android:textAppearance="@style/TextAppearance.AppCompat"
-                style="@android:style/Widget.Holo.Light.Button" />
+                style="@android:style/Widget.Holo.Light.Button"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginRight="110dp"
+                android:layout_marginEnd="110dp" />
+
+            <Button
+                android:text="Six Strings\nGuitar"
+                android:layout_width="110dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/sixSGuitarTuner"
+                android:onClick="startSixSGuitarTuner"
+                android:textAppearance="@style/TextAppearance.AppCompat"
+                style="@android:style/Widget.Holo.Light.Button"
+                android:textAlignment="center"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_marginLeft="110dp"
+                android:layout_marginStart="110dp" />
         </RelativeLayout>
 
         <Space
@@ -76,18 +74,13 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/fourBassButton"
                 android:onClick="startFourSBassTuner"
-                android:layout_alignParentTop="true"
-                android:layout_centerHorizontal="true"
                 android:textAppearance="@style/TextAppearance.AppCompat"
-                style="@android:style/Widget.Holo.Light.Button" />
-        </RelativeLayout>
-
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="35dp" />
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+                style="@android:style/Widget.Holo.Light.Button"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_marginLeft="110dp"
+                android:layout_marginStart="110dp" />
 
             <Button
                 android:text="Six Strings Bass"
@@ -95,11 +88,17 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/sixBassButton"
                 android:onClick="startSixSBassTuner"
-                android:layout_alignParentTop="true"
-                android:layout_centerHorizontal="true"
                 android:textAppearance="@style/TextAppearance.AppCompat"
-                style="@android:style/Widget.Holo.Light.Button" />
+                style="@android:style/Widget.Holo.Light.Button"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginRight="110dp"
+                android:layout_marginEnd="110dp" />
+
         </RelativeLayout>
+
+
 
     </LinearLayout>
 </RelativeLayout>

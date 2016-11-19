@@ -1,5 +1,11 @@
 package com.example.leo.tunner.NoteDisplay;
 
+import android.widget.ImageView;
+import android.widget.TextView;
+
+import com.example.leo.tunner.Activity.Tuner;
+import com.example.leo.tunner.R;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -17,6 +23,9 @@ public class ConversorType  {
 
     public ConversorType() {
 
+    }
+
+    public void initialize(){
         Double e2err = 0.25;
         Double a2err = 0.25;
         Double limEA = (sixthString+e2err)+ ((fifthString -e2err)-(sixthString+e2err))/2;
@@ -30,49 +39,48 @@ public class ConversorType  {
         Double limBE = (secondString +b3err)+ ((firstString -e4err)-(secondString +b3err))/2;
 
 
-        FreqRange lowE = new FreqRange(0.0,sixthString-e2err,"E",new ArrayList<Integer>(Arrays.asList(6,7)));
+        FreqRange lowE = new FreqRange(0.0,sixthString-e2err,"E",new ArrayList<Integer>(Arrays.asList(6,9)));
         freqRangeList.add(lowE);
-        FreqRange e = new FreqRange(sixthString-e2err,sixthString+e2err,"E",new ArrayList<Integer>(Arrays.asList(6,9)));
+        FreqRange e = new FreqRange(sixthString-e2err,sixthString+e2err,"E",new ArrayList<Integer>(Arrays.asList(6,11)));
         freqRangeList.add(e);
-        FreqRange highE = new FreqRange(sixthString+e2err,limEA,"E",new ArrayList<Integer>(Arrays.asList(6,8)));
+        FreqRange highE = new FreqRange(sixthString+e2err,limEA,"E",new ArrayList<Integer>(Arrays.asList(6,10)));
         freqRangeList.add(highE);
-        FreqRange lowA = new FreqRange(limEA, fifthString -a2err,"A",new ArrayList<Integer>(Arrays.asList(5,7)));
+        FreqRange lowA = new FreqRange(limEA, fifthString -a2err,"A",new ArrayList<Integer>(Arrays.asList(5,9)));
         freqRangeList.add(lowA);
-        FreqRange a = new FreqRange(fifthString -a2err, fifthString +a2err,"A",new ArrayList<Integer>(Arrays.asList(5,9)));
+        FreqRange a = new FreqRange(fifthString -a2err, fifthString +a2err,"A",new ArrayList<Integer>(Arrays.asList(5,11)));
         freqRangeList.add(a);
-        FreqRange highA = new FreqRange(fifthString +a2err,limAD,"A",new ArrayList<Integer>(Arrays.asList(5,8)));
+        FreqRange highA = new FreqRange(fifthString +a2err,limAD,"A",new ArrayList<Integer>(Arrays.asList(5,10)));
         freqRangeList.add(highA);
-        FreqRange lowD = new FreqRange(limAD, forthString -d3err,"D",new ArrayList<Integer>(Arrays.asList(4,7)));
+        FreqRange lowD = new FreqRange(limAD, forthString -d3err,"D",new ArrayList<Integer>(Arrays.asList(4,9)));
         freqRangeList.add(lowD);
-        FreqRange d = new FreqRange(forthString -d3err, forthString +d3err,"D",new ArrayList<Integer>(Arrays.asList(4,9)));
+        FreqRange d = new FreqRange(forthString -d3err, forthString +d3err,"D",new ArrayList<Integer>(Arrays.asList(4,11)));
         freqRangeList.add(d);
-        FreqRange highD = new FreqRange(forthString +d3err,limDG,"D",new ArrayList<Integer>(Arrays.asList(4,8)));
+        FreqRange highD = new FreqRange(forthString +d3err,limDG,"D",new ArrayList<Integer>(Arrays.asList(4,10)));
         freqRangeList.add(highD);
-        FreqRange lowG = new FreqRange(limDG, thirdString -g3err,"G",new ArrayList<Integer>(Arrays.asList(3,7)));
+        FreqRange lowG = new FreqRange(limDG, thirdString -g3err,"G",new ArrayList<Integer>(Arrays.asList(3,9)));
         freqRangeList.add(lowG);
-        FreqRange g = new FreqRange(thirdString -g3err, thirdString +g3err,"G",new ArrayList<Integer>(Arrays.asList(3,9)));
+        FreqRange g = new FreqRange(thirdString -g3err, thirdString +g3err,"G",new ArrayList<Integer>(Arrays.asList(3,11)));
         freqRangeList.add(g);
-        FreqRange highG = new FreqRange(thirdString +g3err,limGB,"G",new ArrayList<Integer>(Arrays.asList(3,8)));
+        FreqRange highG = new FreqRange(thirdString +g3err,limGB,"G",new ArrayList<Integer>(Arrays.asList(3,10)));
         freqRangeList.add(highG);
-        FreqRange lowB = new FreqRange(limGB, secondString -b3err,"B",new ArrayList<Integer>(Arrays.asList(2,7)));
+        FreqRange lowB = new FreqRange(limGB, secondString -b3err,"B",new ArrayList<Integer>(Arrays.asList(2,9)));
         freqRangeList.add(lowB);
-        FreqRange b = new FreqRange(secondString -b3err, secondString +b3err,"B",new ArrayList<Integer>(Arrays.asList(2,9)));
+        FreqRange b = new FreqRange(secondString -b3err, secondString +b3err,"B",new ArrayList<Integer>(Arrays.asList(2,11)));
         freqRangeList.add(b);
-        FreqRange highB = new FreqRange(secondString +b3err,limBE,"B",new ArrayList<Integer>(Arrays.asList(2,8)));
+        FreqRange highB = new FreqRange(secondString +b3err,limBE,"B",new ArrayList<Integer>(Arrays.asList(2,10)));
         freqRangeList.add(highB);
-        FreqRange lowE4 = new FreqRange(limBE, firstString -e4err,"E",new ArrayList<Integer>(Arrays.asList(1,7)));
+        FreqRange lowE4 = new FreqRange(limBE, firstString -e4err,"E",new ArrayList<Integer>(Arrays.asList(1,9)));
         freqRangeList.add(lowE4);
-        FreqRange efour = new FreqRange(firstString -e4err, firstString +e4err,"E",new ArrayList<Integer>(Arrays.asList(1,9)));
+        FreqRange efour = new FreqRange(firstString -e4err, firstString +e4err,"E",new ArrayList<Integer>(Arrays.asList(1,11)));
         freqRangeList.add(efour);
-        FreqRange highE4 = new FreqRange(firstString +e4err,null,"E",new ArrayList<Integer>(Arrays.asList(1,8)));
+        FreqRange highE4 = new FreqRange(firstString +e4err,null,"E",new ArrayList<Integer>(Arrays.asList(1,10)));
         freqRangeList.add(highE4);
     }
 
 
     public ArrayList<FreqRange> getFreqRangeList(){
 
-
-    return freqRangeList;
+        return freqRangeList;
     }
 
 
@@ -109,6 +117,8 @@ public class ConversorType  {
         setSecondString(233.1); //Bb
         setFirstString(311.1); //Eb
 
+        initialize();
+
         for(int i =0; i < freqRangeList.size(); i++){
 
             switch (freqRangeList.get(i).getNote()){
@@ -134,6 +144,7 @@ public class ConversorType  {
             }
 
         }
+
 
     }
 
