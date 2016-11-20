@@ -12,14 +12,17 @@ public class ConversorType4 extends ConversorType{
     private static Double BASS_FIRST_STRING = 97.99;  //G2
     Double error = 0.25;
 
+    //STANDARD FOUR-STRING BASS TUNING E1-A1-D2-G2
     public static final ArrayList<Double> STANDARD =  new ArrayList<Double>(Arrays.asList(41.204,55.00,73.416,97.99));
     public static final ArrayList<String> STANDARD_NOTES = new ArrayList<String>(Arrays.asList("E","A","D","G"));
     public static final ArrayList<String> INIT_STANDARD_NOTES = new ArrayList<String> (Arrays.asList("4E","3A","2D","1G"));
 
+    //HALF_DOWN FOUR-STRING BASS TUNING Eb1-Ab1-C#2-F#2
     public static final ArrayList<Double> HALF_DOWN =  new ArrayList<Double>(Arrays.asList(38.89,51.91,69.30,92.50));
     public static final ArrayList<String> HALF_DOWN_NOTES = new ArrayList<String>(Arrays.asList("Eb","Ab","C#","F#"));
 
-    public static final ArrayList<Double> DROP_D =  new ArrayList<Double>(Arrays.asList(41.204,55.00,73.416,97.99));
+    //DROP D FOUR-STRING BASS TUNING D1-A1-D2-G2
+    public static final ArrayList<Double> DROP_D =  new ArrayList<Double>(Arrays.asList(36.71,55.00,73.416,97.99));
     public static final ArrayList<String> DROP_D_NOTES = new ArrayList<String>(Arrays.asList("E","A","D","G"));
     public static final ArrayList<String> INIT_DROPD_NOTES = new ArrayList<String> (Arrays.asList("4D","3A","2D","1G"));
 

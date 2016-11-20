@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/standard_tune"
+          android:title="Standard Seven/Eight Strings" />
+    <item android:id="@+id/half_down_tune"
+        android:title="Half Down Seven/Eight Strings " />
+    <item android:id="@+id/dropE_tune"
+        android:title="Drop E Eight Strings" />
+    <item android:id="@+id/dropA_tune"
+        android:title="Drop A Seven Strings" />
+
+</menu>

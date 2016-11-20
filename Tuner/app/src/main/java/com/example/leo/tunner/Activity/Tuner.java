@@ -88,9 +88,11 @@ public class Tuner extends AppCompatActivity {
         textFr.setTypeface(tf);
         textFr.setTextColor(GREEN);
 
-        type.initializeStrings(this);
 
+        type.initializeStrings(this);
         textViewList = new ArrayList<TextView> (Arrays.asList(eightTV,seventhTV,sixthTV,fifthTV,forthTV,thirdTV,secondTV,firstTV));
+
+        type.setDefaultTextViews(this);
 
         turnLightsOff();
 
@@ -104,15 +106,26 @@ public class Tuner extends AppCompatActivity {
                 t = new ConversorType();
                 t.initialize();
                 type = new TunerType6();
+                setTitle("Guitar Tuner");
                 break;
             case 1:
                 t = new ConversorType8();
+                t.initialize();
+                t.setTuning(ConversorType8.STANDARD,ConversorType8.STANDARD_NOTES);
                 type = new TunerType8();
+                setTitle("Guitar Tuner");
                 break;
             case 2:
                 t= new ConversorType4();
                 t.setTuning(ConversorType4.STANDARD,ConversorType4.STANDARD_NOTES);
                 type = new TunerType4();
+                setTitle("Bass Tuner");
+                break;
+            case 3:
+                t= new ConversorType();
+                t.setTuning(TunerTypeB6.STANDARD_BASS,TunerTypeB6.STANDARD_BASS_NOTES);
+                type = new TunerTypeB6();
+                setTitle("Bass Tuner");
                 break;
             default:
                 t = new ConversorType();
@@ -144,12 +157,14 @@ public class Tuner extends AppCompatActivity {
         isListening = false;
         strtButton.setEnabled(true);
         stpButton.setEnabled(false);
+        turnLightsOff();
         textFr.setText(" ");
     }
 
     public void updateTxtFr(String text){
-        textFr = (TextView) findViewById(R.id.textFr);
-        textFr.setText(text);
+        type.updateTxtFr(text,this);
+        /*textFr = (TextView) findViewById(R.id.textFr);
+        textFr.setText(text);*/
 
     }
 
@@ -359,5 +374,11 @@ public class Tuner extends AppCompatActivity {
     public ImageView getFn() {
         return fn;
     }
+
+    public void setTextFr(TextView textFr) {
+        this.textFr = textFr;
+    }
+
+
 
 }

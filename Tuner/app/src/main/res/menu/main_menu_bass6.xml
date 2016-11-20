@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/standard6_tune"
+          android:title="Standard Six Strings" />
+    <item android:id="@+id/half_down6_tune"
+        android:title="Half Down Six Strings" />
+    <item android:id="@+id/standard5_tune"
+        android:title="Standard Five Strings" />
+    <item android:id="@+id/half_down5_tune"
+          android:title="Half Down Five Strings" />
+    <item android:id="@+id/tenor5_tune"
+        android:title="Tenor Five Strings" />
+
+
+</menu>

@@ -15,18 +15,29 @@ public class ConversorType  {
     Double firstString = 329.63;
     ArrayList<FreqRange> freqRangeList = new ArrayList<FreqRange>();
 
+    //STANDARD SIX-STRING GUITAR TUNING E2-A2-D3-G3-B3-E4
     public static final ArrayList<Double> STANDARD =  new ArrayList<Double>(Arrays.asList(82.41,110.00,146.83,196.00,246.94,329.63));
     public static final ArrayList<String> STANDARD_NOTES = new ArrayList<String>(Arrays.asList("E","A","D","G","B","E"));
     public static final ArrayList<String> INIT_STANDARD_NOTES = new ArrayList<String> (Arrays.asList("6E","5A","4D","3G","2B","1E"));
 
-
+    //HALF DOWN SIX-STRING GUITAR TUNING Eb2-Ab2-C#3-F#3-Bb3-Eb4
     public static final ArrayList<Double> HALF_DOWN =  new ArrayList<Double> (Arrays.asList(77.78,103.8,138.6,185.0,233.1,311.1));
     public static final ArrayList<String> HALF_DOWN_NOTES = new ArrayList<String> (Arrays.asList("Eb","Ab","C#","F#","Bb","Eb"));
 
+    //DROP D SIX-STRING GUITAR TUNING D2-A2-D3-G3-B3-E4
     public static final ArrayList<Double> DROP_D =  new ArrayList<Double>(Arrays.asList(73.42,110.00,146.83,196.00,246.94,329.63));
     public static final ArrayList<String> DROP_D_NOTES = new ArrayList<String>(Arrays.asList("D","A","D","G","B","E"));
     public static final ArrayList<String> INIT_DROPD_NOTES = new ArrayList<String> (Arrays.asList("6D","5A","4D","3G","2B","1E"));
 
+    //OPEN G SIX-STRING GUITAR TUNING D2-G2-D3-G3-B3-D4
+    public static final ArrayList<Double> OPEN_G =  new ArrayList<Double>(Arrays.asList(73.42,98.00,146.83,196.00,246.94,293.7));
+    public static final ArrayList<String> OPEN_G_NOTES = new ArrayList<String>(Arrays.asList("D","G","D","G","B","D"));
+    public static final ArrayList<String> INIT_OPENG_NOTES = new ArrayList<String> (Arrays.asList("6D","5G","4D","3G","2B","1D"));
+
+    //OPEN D SIX-STRING GUITAR TUNING D2-A2-D3-F#3-A3-D4
+    public static final ArrayList<Double> OPEN_D =  new ArrayList<Double>(Arrays.asList(73.42,110.0,146.8,185.0,220.0,293.7));
+    public static final ArrayList<String> OPEN_D_NOTES = new ArrayList<String>(Arrays.asList("D","A","D","F#","A","D"));
+    public static final ArrayList<String> INIT_OPEND_NOTES = new ArrayList<String> (Arrays.asList(" D "," A "," D ","F#"," A "," D "));
 
 
     public void initialize(){

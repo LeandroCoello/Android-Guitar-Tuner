@@ -100,7 +100,7 @@ public class MainActivity extends AppCompatActivity {
         ArrayList<Integer> par = new ArrayList<Integer>();
         par.add(0,R.layout.activity_tuner);
         par.add(1,R.layout.activity_tuner_landscape);
-        par.add(2,0);
+        par.add(2,3);
 
         i.putExtra("params",par);
         startActivity(i);

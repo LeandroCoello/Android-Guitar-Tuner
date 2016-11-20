@@ -67,9 +67,24 @@ public class TunerType6 extends TunerType4 {
 
                 return true;
 
-            case R.id.open_tune:
-                t.displayToast("Open tune selected!");
-                updateTextViews("standard",t);
+            case R.id.openg_tune:
+                t.displayToast("Open G tune selected!");
+                updateTextViews("openG",t);
+
+                ConversorType ctype3 = new ConversorType();
+                ctype3.setTuning(ConversorType.OPEN_G,ConversorType.OPEN_G_NOTES);
+                t.setNoteConversor(new NoteConversor(ctype3));
+
+                return true;
+
+            case R.id.opend_tune:
+                t.displayToast("Open D tune selected!");
+                updateTextViews("openD",t);
+
+                ConversorType ctype4 = new ConversorType();
+                ctype4.setTuning(ConversorType.OPEN_D,ConversorType.OPEN_D_NOTES);
+                t.setNoteConversor(new NoteConversor(ctype4));
+
                 return true;
 
             case R.id.dropd_tune:
@@ -96,15 +111,8 @@ public class TunerType6 extends TunerType4 {
             case "standard":
 
                 t.setTextView(ConversorType.INIT_STANDARD_NOTES);
+                smallDisplay(t);
 
-                t.getFn().setScaleX(1.0f);
-
-
-                RelativeLayout.LayoutParams lp = (RelativeLayout.LayoutParams) t.getTextFr().getLayoutParams();
-                lp.addRule(RelativeLayout.CENTER_VERTICAL);
-                lp.addRule(RelativeLayout.ALIGN_START,R.id.frameNote);
-                lp.leftMargin = 44;
-                t.getTextFr().setLayoutParams(lp);
 
                 break;
 
@@ -112,31 +120,59 @@ public class TunerType6 extends TunerType4 {
 
                 t.setTextView(ConversorType.HALF_DOWN_NOTES);
 
-                t.getFn().setScaleX(1.5f);
+                bigDisplay(t);
 
-
-                RelativeLayout.LayoutParams lp2 = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-                lp2.addRule(RelativeLayout.CENTER_VERTICAL);
-                lp2.addRule(RelativeLayout.ALIGN_START,R.id.frameNote);
-                lp2.setMargins(21,0,0,0);
-                t.getTextFr().setLayoutParams(lp2);
                 break;
 
             case "drop_d":
 
                 t.setTextView(ConversorType.INIT_DROPD_NOTES);
 
-                t.getFn().setScaleX(1.0f);
+                smallDisplay(t);
 
 
-                RelativeLayout.LayoutParams lp3 = (RelativeLayout.LayoutParams) t.getTextFr().getLayoutParams();
-                lp3.addRule(RelativeLayout.CENTER_VERTICAL);
-                lp3.addRule(RelativeLayout.ALIGN_START,R.id.frameNote);
-                lp3.leftMargin = 44;
-                t.getTextFr().setLayoutParams(lp3);
+                break;
+
+            case "openG":
+
+                t.setTextView(ConversorType.INIT_OPENG_NOTES);
+
+                smallDisplay(t);
+
+
+                break;
+
+            case "openD":
+                t.setTextView(ConversorType.INIT_OPEND_NOTES);
+
+                bigDisplay(t);
 
                 break;
         }
     }
+    public void setDefaultTextViews(Tuner t){
+        t.setTextView(ConversorType.INIT_STANDARD_NOTES);
+    }
+
+    @Override
+    public void updateTxtFr(String text,Tuner t) {
+
+        t.setTextFr((TextView) t.findViewById(R.id.textFr));
+        t.getTextFr().setText(text);
+
+        if(text.length()==1 && t.getFn().getScaleX()==1.5f){
+            RelativeLayout.LayoutParams lp2 = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+            lp2.addRule(RelativeLayout.CENTER_VERTICAL);
+            lp2.addRule(RelativeLayout.ALIGN_START,R.id.frameNote);
+            lp2.setMargins(44,0,0,0);
+            t.getTextFr().setLayoutParams(lp2);
+        }
+        if(text.length()==2 && t.getFn().getScaleX()==1.5f){
+
+            bigDisplay(t);
+        }
+
+    }
+
 }
 
