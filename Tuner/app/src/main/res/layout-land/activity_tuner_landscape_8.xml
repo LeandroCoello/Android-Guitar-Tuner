@@ -17,7 +17,7 @@
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="25dp" />
+            android:layout_height="15dp" />
 
 
         <RelativeLayout
@@ -32,9 +32,16 @@
                 android:onClick="startRecording"
                 android:textAppearance="@style/TextAppearance.AppCompat"
                 style="@android:style/Widget.Holo.Light.Button"
-                android:layout_marginLeft="148dp"
                 android:layout_alignParentTop="true"
-                android:layout_alignParentLeft="true"/>
+                android:layout_toLeftOf="@id/centerPoint"
+                android:layout_marginRight="25dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/centerPoint"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"/>
 
             <Button
                 android:text="Stop Tuning"
@@ -45,14 +52,13 @@
                 android:textAppearance="@style/TextAppearance.AppCompat"
                 style="@android:style/Widget.Holo.Light.Button"
                 android:layout_alignParentTop="true"
-                android:layout_alignParentRight="true"
-                android:layout_marginRight="150dp"
-                 />
+                android:layout_toRightOf="@id/centerPoint"
+                android:layout_marginLeft="25dp"/>
         </RelativeLayout>
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="15dp" />
+            android:layout_height="10dp" />
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
@@ -62,8 +68,7 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/rLayout3"
-            android:layout_weight="0.03">
+            android:id="@+id/rLayout3">
 
             <ImageView
                 android:layout_width="wrap_content"
@@ -153,7 +158,7 @@
                 android:scaleY="1.5"
                 android:layout_alignParentTop="true"
                 android:layout_toRightOf="@+id/frameNote"
-                android:layout_marginLeft="80dp"
+                android:layout_marginLeft="65dp"
                 android:layout_marginTop="35dp"/>
 
             <ImageView
@@ -205,7 +210,7 @@
                 android:scaleY="1.5"
                 android:layout_alignParentTop="true"
                 android:layout_toLeftOf="@+id/frameNote"
-                android:layout_marginRight="80dp"
+                android:layout_marginRight="65dp"
                 android:layout_marginTop="35dp"/>
 
             <ImageView
@@ -397,7 +402,6 @@
                 android:scaleX="1.2"
                 android:scaleY="1.2"
                 android:layout_alignParentTop="true"
-                android:layout_marginTop="10dp"
                 android:layout_alignLeft="@+id/ok"
                 android:layout_alignStart="@+id/ok" />
 
@@ -408,7 +412,6 @@
                 android:id="@+id/ok"
                 android:scaleX="1.2"
                 android:scaleY="1.2"
-                android:layout_marginTop="10dp"
                 android:layout_alignParentTop="true"
                 android:layout_centerHorizontal="true" />
 
@@ -425,7 +428,7 @@
                 android:layout_alignParentTop="true"
                 android:layout_alignParentEnd="true"
                 android:layout_marginEnd="190dp"
-                android:layout_marginTop="30dp"/>
+                android:layout_marginTop="20dp"/>
 
 
             <ImageView
@@ -440,7 +443,7 @@
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
                 android:layout_marginLeft="190dp"
-                android:layout_marginTop="30dp" />
+                android:layout_marginTop="20dp" />
 
             <ImageView
                 android:layout_width="wrap_content"
@@ -503,5 +506,14 @@
         </RelativeLayout>
 
     </LinearLayout>
-
+    <TextView
+        android:text=" by L.C. "
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:id="@+id/textView"
+        android:textColorHighlight="@color/colorPrimaryDark"
+        android:background="@color/colorPrimaryDark"
+        android:fontFamily="cursive" />
 </RelativeLayout>

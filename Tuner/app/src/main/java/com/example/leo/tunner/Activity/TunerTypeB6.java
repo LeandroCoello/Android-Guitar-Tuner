@@ -131,6 +131,7 @@ public class TunerTypeB6 extends TunerType6{
 
                 smallDisplay(t);
 
+                t.setTitle("Bass Tuner - Standard");
 
                 break;
 
@@ -140,6 +141,7 @@ public class TunerTypeB6 extends TunerType6{
 
                 smallDisplay(t);
 
+                t.setTitle("Bass Tuner - Standard");
 
                 break;
 
@@ -149,6 +151,8 @@ public class TunerTypeB6 extends TunerType6{
 
                 bigDisplay(t);
 
+                t.setTitle("Bass Tuner - Half Down Six");
+
                 break;
 
             case "half_down5":
@@ -157,6 +161,9 @@ public class TunerTypeB6 extends TunerType6{
 
                 bigDisplay(t);
 
+                t.setTitle("Bass Tuner - Half Down Five");
+
+
                 break;
 
             case "tenor_five":
@@ -164,6 +171,8 @@ public class TunerTypeB6 extends TunerType6{
                 t.setTextView(INIT_TENOR_FIVES_BASS_NOTES);
 
                 smallDisplay(t);
+
+                t.setTitle("Bass Tuner - Tenor Five");
 
 
                 break;
@@ -184,7 +193,7 @@ public class TunerTypeB6 extends TunerType6{
             RelativeLayout.LayoutParams lp2 = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
             lp2.addRule(RelativeLayout.CENTER_VERTICAL);
             lp2.addRule(RelativeLayout.ALIGN_START,R.id.frameNote);
-            lp2.setMargins(44,0,0,0);
+            lp2.setMargins(35,0,0,0);
             t.getTextFr().setLayoutParams(lp2);
         }
         if(text.length()==2 && t.getFn().getScaleX()==1.5f){

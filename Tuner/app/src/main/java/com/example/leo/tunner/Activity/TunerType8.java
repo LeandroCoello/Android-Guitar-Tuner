@@ -107,6 +107,9 @@ public class TunerType8 extends TunerType6 {
 
                 bigDisplay(t);
 
+                t.setTitle("Guitar Tuner - Standard");
+
+
                 break;
 
             case "half_down":
@@ -115,6 +118,9 @@ public class TunerType8 extends TunerType6 {
 
                 bigDisplay(t);
 
+                t.setTitle("Guitar Tuner - Half Down");
+
+
                 break;
 
             case "dropE":
@@ -122,6 +128,9 @@ public class TunerType8 extends TunerType6 {
                 t.setTextView(ConversorType8.INIT_DROPE_NOTES);
 
                 smallDisplay(t);
+
+                t.setTitle("Guitar Tuner - Drop E");
+
 
 
                 break;
@@ -132,6 +141,7 @@ public class TunerType8 extends TunerType6 {
 
                 bigDisplay(t);
 
+                t.setTitle("Guitar Tuner - Drop A");
 
                 break;
         }
@@ -152,7 +162,7 @@ public class TunerType8 extends TunerType6 {
             RelativeLayout.LayoutParams lp2 = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
             lp2.addRule(RelativeLayout.CENTER_VERTICAL);
             lp2.addRule(RelativeLayout.ALIGN_START,R.id.frameNote);
-            lp2.setMargins(44,0,0,0);
+            lp2.setMargins(35,0,0,0);
             t.getTextFr().setLayoutParams(lp2);
         }
         if(text.length()==2 && t.getFn().getScaleX()==1.5f){

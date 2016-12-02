@@ -92,6 +92,7 @@ public class ProcessingTask extends AsyncTask<Float, Float, Float> {
     @Override
     protected void onPostExecute(Float result) {
         tuner.updateTxtFr(" ");
+        tuner.turnLightsOff();
 
     }
 

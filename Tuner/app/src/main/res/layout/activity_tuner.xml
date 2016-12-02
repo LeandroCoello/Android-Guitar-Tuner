@@ -5,10 +5,7 @@
     android:layout_height="match_parent"
     android:id="@+id/mainLayout"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin"
+
     android:background="@drawable/wood_wallpaper_12801">
 
     <LinearLayout
@@ -68,7 +65,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/rLayout3"
-            android:layout_weight="0.7">
+            android:layout_weight="0.4">
 
             <ImageView
                 android:layout_width="wrap_content"
@@ -82,8 +79,8 @@
                 android:layout_alignParentRight="true"
                 android:layout_alignParentEnd="true"
                 android:layout_marginTop="25dp"
-                android:layout_marginRight="25dp"
-                android:layout_marginEnd="25dp" />
+                android:layout_marginRight="35dp"
+                android:layout_marginEnd="35dp" />
 
             <ImageView
                 android:layout_width="wrap_content"
@@ -188,7 +185,7 @@
                 android:tint="@color/colorPrimaryDark"
                 android:layout_alignParentLeft="true"
                 android:layout_marginTop="25dp"
-                android:layout_marginLeft="25dp"
+                android:layout_marginLeft="35dp"
                 android:scaleX="1.5"
                 android:scaleY="1.5"/>
 
@@ -198,8 +195,9 @@
                 app:srcCompat="@android:drawable/presence_invisible"
                 android:id="@+id/sixthString"
                 android:tint="@color/colorGrayLight"
-                android:layout_marginTop="25dp"
-                android:layout_marginLeft="25dp"
+                android:layout_alignTop="@+id/frameSixthS"
+                android:layout_alignLeft="@+id/frameSixthS"
+                android:layout_alignStart="@+id/frameSixthS"
                 android:scaleX="1.2"
                 android:scaleY="1.2"/>
 
@@ -300,6 +298,7 @@
 
         </RelativeLayout>
 
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -327,9 +326,6 @@
 
         </RelativeLayout>
 
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="15dp" />
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -449,4 +445,14 @@
         </RelativeLayout>
 
     </LinearLayout>
+    <TextView
+        android:text=" by L.C. "
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:id="@+id/textView"
+        android:textColorHighlight="@color/colorPrimaryDark"
+        android:background="@color/colorPrimaryDark"
+        android:fontFamily="cursive" />
 </RelativeLayout>

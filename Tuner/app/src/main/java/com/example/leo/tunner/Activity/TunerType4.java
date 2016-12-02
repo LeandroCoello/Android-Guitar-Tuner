@@ -98,6 +98,8 @@ public class TunerType4 {
 
                 smallDisplay(t);
 
+                t.setTitle("Bass Tuner - Standard");
+
                 break;
 
             case "half_down":
@@ -106,6 +108,9 @@ public class TunerType4 {
 
                 bigDisplay(t);
 
+                t.setTitle("Bass Tuner - Half Down");
+
+
                 break;
 
             case "drop_d":
@@ -113,6 +118,8 @@ public class TunerType4 {
                 t.setTextView(ConversorType4.INIT_DROPD_NOTES);
 
                 smallDisplay(t);
+
+                t.setTitle("Bass Tuner - Drop D");
 
                 break;
         }
@@ -128,7 +135,7 @@ public class TunerType4 {
         RelativeLayout.LayoutParams lp2 = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         lp2.addRule(RelativeLayout.CENTER_VERTICAL);
         lp2.addRule(RelativeLayout.ALIGN_START,R.id.frameNote);
-        lp2.setMargins(21,0,0,0);
+        lp2.setMargins(19,0,0,0);
         t.getTextFr().setLayoutParams(lp2);
     }
 
@@ -137,7 +144,7 @@ public class TunerType4 {
         RelativeLayout.LayoutParams lp3 = (RelativeLayout.LayoutParams) t.getTextFr().getLayoutParams();
         lp3.addRule(RelativeLayout.CENTER_VERTICAL);
         lp3.addRule(RelativeLayout.ALIGN_START,R.id.frameNote);
-        lp3.leftMargin = 44;
+        lp3.leftMargin = 34;
         t.getTextFr().setLayoutParams(lp3);
     }
 
