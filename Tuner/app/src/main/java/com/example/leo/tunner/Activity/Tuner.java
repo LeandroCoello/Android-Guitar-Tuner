@@ -1,8 +1,11 @@
 package com.example.leo.tunner.Activity;
 
+import android.Manifest;
+import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -54,7 +57,7 @@ public class Tuner extends AppCompatActivity {
         layout_landscape = params.get(1);
         typeCode = params.get(2);
 
-        seUpTypes(typeCode);
+        setUpTypes(typeCode);
 
         if(conf.orientation == Configuration.ORIENTATION_PORTRAIT){
 
@@ -65,7 +68,12 @@ public class Tuner extends AppCompatActivity {
             setContentView(layout_landscape);
 
         }
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.RECORD_AUDIO)
+                != PackageManager.PERMISSION_GRANTED) {
 
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.RECORD_AUDIO},
+                    123);
+        }
 
        initialize();
 
@@ -99,7 +107,7 @@ public class Tuner extends AppCompatActivity {
     }
 
 
-    public void seUpTypes(int tc){
+    public void setUpTypes(int tc){
         ConversorType t ;
         switch (tc){
             case 0:

@@ -23,6 +23,7 @@ public class ProcessingTask extends AsyncTask<Float, Float, Float> {
 
     Tuner tuner;
     NoteConversor noteConversor;
+
     public ProcessingTask(Tuner t, NoteConversor nc){
 
         tuner = t;
