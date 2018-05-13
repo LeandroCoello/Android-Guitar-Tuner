@@ -22,7 +22,7 @@
 */
 
 
-package com.example.leo.tunner.PitchRecognitionPack;
+package com.tuner.PitchRecognitionPack;
 
 /**
  * A pitch detector is capable of analyzing a buffer with audio information

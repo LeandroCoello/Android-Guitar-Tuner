@@ -1,4 +1,4 @@
-package com.example.leo.tunner;
+package com.tuner;
 
 import android.Manifest;
 import android.content.Intent;
@@ -11,9 +11,9 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.leo.tunner.Activity.Tuner;
-import com.example.leo.tunner.R;
-import com.example.leo.tunner.Task.ProcessingTaskDemo;
+import com.tuner.Activity.Tuner;
+import com.tuner.R;
+import com.tuner.Task.ProcessingTaskDemo;
 
 import java.util.ArrayList;
 

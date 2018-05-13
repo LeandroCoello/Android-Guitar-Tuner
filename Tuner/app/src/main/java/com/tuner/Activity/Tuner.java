@@ -1,4 +1,4 @@
-package com.example.leo.tunner.Activity;
+package com.tuner.Activity;
 
 import android.Manifest;
 import android.content.pm.PackageManager;
@@ -16,12 +16,12 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.leo.tunner.NoteDisplay.ConversorType;
-import com.example.leo.tunner.NoteDisplay.ConversorType4;
-import com.example.leo.tunner.NoteDisplay.ConversorType8;
-import com.example.leo.tunner.NoteDisplay.NoteConversor;
-import com.example.leo.tunner.R;
-import com.example.leo.tunner.Task.ProcessingTask;
+import com.tuner.NoteDisplay.ConversorType;
+import com.tuner.NoteDisplay.ConversorType4;
+import com.tuner.NoteDisplay.ConversorType8;
+import com.tuner.NoteDisplay.NoteConversor;
+import com.tuner.R;
+import com.tuner.Task.ProcessingTask;
 
 import java.util.ArrayList;
 import java.util.Arrays;

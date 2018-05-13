@@ -56,7 +56,7 @@
  *
  * ***** END LICENSE BLOCK ***** */
 
-package com.example.leo.tunner.PitchRecognitionPack;
+package com.tuner.PitchRecognitionPack;
 
 import java.util.concurrent.Future;
 

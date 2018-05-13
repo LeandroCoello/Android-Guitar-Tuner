@@ -1,4 +1,4 @@
-package com.example.leo.tunner.Activity;
+package com.tuner.Activity;
 
 
 import android.view.Menu;
@@ -8,14 +8,15 @@ import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.example.leo.tunner.NoteDisplay.ConversorType;
-import com.example.leo.tunner.NoteDisplay.NoteConversor;
-import com.example.leo.tunner.R;
+import com.tuner.NoteDisplay.ConversorType;
+import com.tuner.NoteDisplay.NoteConversor;
+import com.tuner.R;
+import com.tuner.Activity.TunerType6;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class TunerTypeB6 extends TunerType6{
+public class TunerTypeB6 extends TunerType6 {
 
     //STANDARD SIX-STRING BASS TUNING B0-E1-A1-D2-G2-C3
     public static final ArrayList<Double> STANDARD_BASS =  new ArrayList<Double>(Arrays.asList(30.87,41.204,55.00,73.416,97.99,130.80));

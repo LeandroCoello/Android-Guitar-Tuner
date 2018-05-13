@@ -21,7 +21,7 @@
 * 
 */
 
-package com.example.leo.tunner.PitchRecognitionPack;
+package com.tuner.PitchRecognitionPack;
 
 
 /**

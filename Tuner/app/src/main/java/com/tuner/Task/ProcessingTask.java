@@ -1,15 +1,18 @@
-package com.example.leo.tunner.Task;
+package com.tuner.Task;
 
 import android.media.AudioFormat;
 import android.media.AudioRecord;
 import android.media.MediaRecorder;
 import android.os.AsyncTask;
 
-import com.example.leo.tunner.MainActivity;
-import com.example.leo.tunner.PitchRecognitionPack.FastYin;
-import com.example.leo.tunner.PitchRecognitionPack.PitchDetectionResult;
+import java.lang.Short;
 
-public class ProcessingTaskDemo extends AsyncTask<Float, Float, Float> {
+import com.tuner.Activity.Tuner;
+import com.tuner.NoteDisplay.NoteConversor;
+import com.tuner.PitchRecognitionPack.FastYin;
+import com.tuner.PitchRecognitionPack.PitchDetectionResult;
+
+public class ProcessingTask extends AsyncTask<Float, Float, Float> {
 
 
     private static short[] samples;
@@ -18,10 +21,13 @@ public class ProcessingTaskDemo extends AsyncTask<Float, Float, Float> {
     private static int N;
 
 
-    MainActivity mainActivity;
+    Tuner tuner;
+    NoteConversor noteConversor;
 
-    public ProcessingTaskDemo(MainActivity t){
-        mainActivity = t;
+    public ProcessingTask(Tuner t, NoteConversor nc){
+
+        tuner = t;
+        noteConversor = nc;
     }
 
 
@@ -42,7 +48,7 @@ public class ProcessingTaskDemo extends AsyncTask<Float, Float, Float> {
 
 
 
-        while(mainActivity.isListeningDemo()) {
+        while(tuner.isListening()) {
 
             recorder.read(samples, 0, samples.length);
             //float[] infsamples = increaseGain(shortToFloat(samples),3f);
@@ -77,12 +83,18 @@ public class ProcessingTaskDemo extends AsyncTask<Float, Float, Float> {
 
     @Override
     protected void onProgressUpdate(Float... values) {
-        mainActivity.updateTxtView(values[0].toString()+"Hz");
+
+        tuner.turnLightsOff();
+
+        String st = noteConversor.getNote(values[0], tuner);
+        tuner.updateTxtFr(st);
     }
 
     @Override
     protected void onPostExecute(Float result) {
-        mainActivity.updateTxtView(" ");
+        tuner.updateTxtFr(" ");
+        tuner.turnLightsOff();
+
     }
 
     public float[] shortToFloat(short[] samples){

@@ -24,7 +24,7 @@
 
 /**
  */
-package com.example.leo.tunner.PitchRecognitionPack;
+package com.tuner.PitchRecognitionPack;
 
 import java.util.ArrayList;
 import java.util.List;

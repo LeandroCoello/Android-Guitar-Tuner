@@ -1,7 +1,7 @@
-package com.example.leo.tunner.NoteDisplay;
+package com.tuner.NoteDisplay;
 
 
-import com.example.leo.tunner.Activity.Tuner;
+import com.tuner.Activity.Tuner;
 
 import java.util.ArrayList;
 

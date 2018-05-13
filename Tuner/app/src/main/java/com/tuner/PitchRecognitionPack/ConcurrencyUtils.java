@@ -55,7 +55,7 @@
  * the terms of any one of the MPL, the GPL or the LGPL.
  *
  * ***** END LICENSE BLOCK ***** */
-package com.example.leo.tunner.PitchRecognitionPack;
+package com.tuner.PitchRecognitionPack;
 
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;

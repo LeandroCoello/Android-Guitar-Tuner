@@ -1,4 +1,4 @@
-package com.example.leo.tunner.Activity;
+package com.tuner.Activity;
 
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -9,10 +9,10 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 
-import com.example.leo.tunner.NoteDisplay.ConversorType;
-import com.example.leo.tunner.NoteDisplay.ConversorType4;
-import com.example.leo.tunner.NoteDisplay.NoteConversor;
-import com.example.leo.tunner.R;
+import com.tuner.NoteDisplay.ConversorType;
+import com.tuner.NoteDisplay.ConversorType4;
+import com.tuner.NoteDisplay.NoteConversor;
+import com.tuner.R;
 
 public class TunerType4 {
 

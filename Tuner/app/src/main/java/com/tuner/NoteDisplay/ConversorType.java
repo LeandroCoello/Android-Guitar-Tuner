@@ -1,4 +1,4 @@
-package com.example.leo.tunner.NoteDisplay;
+package com.tuner.NoteDisplay;
 
 import java.util.ArrayList;
 import java.util.Arrays;

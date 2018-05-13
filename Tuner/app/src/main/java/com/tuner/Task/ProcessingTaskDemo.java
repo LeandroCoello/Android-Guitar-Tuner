@@ -1,18 +1,15 @@
-package com.example.leo.tunner.Task;
+package com.tuner.Task;
 
 import android.media.AudioFormat;
 import android.media.AudioRecord;
 import android.media.MediaRecorder;
 import android.os.AsyncTask;
 
-import java.lang.Short;
+import com.tuner.MainActivity;
+import com.tuner.PitchRecognitionPack.FastYin;
+import com.tuner.PitchRecognitionPack.PitchDetectionResult;
 
-import com.example.leo.tunner.Activity.Tuner;
-import com.example.leo.tunner.NoteDisplay.NoteConversor;
-import com.example.leo.tunner.PitchRecognitionPack.FastYin;
-import com.example.leo.tunner.PitchRecognitionPack.PitchDetectionResult;
-
-public class ProcessingTask extends AsyncTask<Float, Float, Float> {
+public class ProcessingTaskDemo extends AsyncTask<Float, Float, Float> {
 
 
     private static short[] samples;
@@ -21,13 +18,10 @@ public class ProcessingTask extends AsyncTask<Float, Float, Float> {
     private static int N;
 
 
-    Tuner tuner;
-    NoteConversor noteConversor;
+    MainActivity mainActivity;
 
-    public ProcessingTask(Tuner t, NoteConversor nc){
-
-        tuner = t;
-        noteConversor = nc;
+    public ProcessingTaskDemo(MainActivity t){
+        mainActivity = t;
     }
 
 
@@ -48,7 +42,7 @@ public class ProcessingTask extends AsyncTask<Float, Float, Float> {
 
 
 
-        while(tuner.isListening()) {
+        while(mainActivity.isListeningDemo()) {
 
             recorder.read(samples, 0, samples.length);
             //float[] infsamples = increaseGain(shortToFloat(samples),3f);
@@ -83,18 +77,12 @@ public class ProcessingTask extends AsyncTask<Float, Float, Float> {
 
     @Override
     protected void onProgressUpdate(Float... values) {
-
-        tuner.turnLightsOff();
-
-        String st = noteConversor.getNote(values[0], tuner);
-        tuner.updateTxtFr(st);
+        mainActivity.updateTxtView(values[0].toString()+"Hz");
     }
 
     @Override
     protected void onPostExecute(Float result) {
-        tuner.updateTxtFr(" ");
-        tuner.turnLightsOff();
-
+        mainActivity.updateTxtView(" ");
     }
 
     public float[] shortToFloat(short[] samples){

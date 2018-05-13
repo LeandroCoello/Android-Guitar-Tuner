@@ -21,19 +21,36 @@
 * 
 */
 
+/*
+*
+*  I took Joren's Code and changed it so that 
+*  it uses the FFT to calculate the difference function.
+*  TarsosDSP is developed by Joren Six at 
+*  The Royal Academy of Fine Arts & Royal Conservatory,
+*  University College Ghent,
+*  Hoogpoort 64, 9000 Ghent - Belgium
+*  
+*  http://tarsos.0110.be/tag/TarsosDSP
+*
+*/
 
-package com.example.leo.tunner.PitchRecognitionPack;
+package com.tuner.PitchRecognitionPack;
+
 
 /**
- * An implementation of the AUBIO_YIN pitch tracking algorithm. See <a href=
+ * An implementation of the YIN pitch tracking algorithm which uses an FFT to
+ * calculate the difference function. This makes calculating the difference
+ * function more performant. See <a href=
  * "http://recherche.ircam.fr/equipes/pcm/cheveign/ps/2002_JASA_YIN_proof.pdf"
- * >the YIN paper.</a> Implementation based on <a
- * href="http://aubio.org">aubio</a>
+ * >the YIN paper.</a> This implementation is done by <a href="mailto:matthias.mauch@elec.qmul.ac.uk">Matthias Mauch</a> and is
+ * based on {@link Yin} which is based on the implementation found in <a
+ * href="http://aubio.org">aubio</a> by Paul Brossier.
  * 
+ * @author Matthias Mauch
  * @author Joren Six
  * @author Paul Brossier
  */
-public final class Yin implements PitchDetector {
+public final class FastYin implements PitchDetector {
 	/**
 	 * The default YIN threshold value. Should be around 0.10~0.15. See YIN
 	 * paper for more information.
@@ -64,12 +81,34 @@ public final class Yin implements PitchDetector {
 	 * The buffer that stores the calculated values. It is exactly half the size
 	 * of the input buffer.
 	 */
-	private final float[] yinBuffer;
+	private final float[] yinBuffer;	
 	
 	/**
 	 * The result of the pitch detection iteration.
 	 */
 	private final PitchDetectionResult result;
+	
+	//------------------------ FFT instance members
+	
+	/**
+	 * Holds the FFT data, twice the length of the audio buffer.
+	 */
+	private final float[] audioBufferFFT;
+	
+	/**
+	 * Half of the data, disguised as a convolution kernel.
+	 */
+	private final  float[] kernel;
+	
+	/**
+	 * Buffer to allow convolution via complex multiplication. It calculates the auto correlation function (ACF).
+	 */
+	private final float[] yinStyleACF;
+	
+	/**
+	 * An FFT object to quickly calculate the difference function.
+	 */
+	private final FloatFFT fft;
 
 	/**
 	 * Create a new pitch detector for a stream with the defined sample rate.
@@ -80,7 +119,7 @@ public final class Yin implements PitchDetector {
 	 * @param bufferSize
 	 *            The size of a buffer. E.g. 1024.
 	 */
-	public Yin(final float audioSampleRate, final int bufferSize) {
+	public FastYin(final float audioSampleRate, final int bufferSize) {
 		this(audioSampleRate, bufferSize, DEFAULT_THRESHOLD);
 	}
 
@@ -96,10 +135,15 @@ public final class Yin implements PitchDetector {
 	 *            The parameter that defines which peaks are kept as possible
 	 *            pitch candidates. See the YIN paper for more details.
 	 */
-	public Yin(final float audioSampleRate, final int bufferSize, final double yinThreshold) {
+	public FastYin(final float audioSampleRate, final int bufferSize, final double yinThreshold) {
 		this.sampleRate = audioSampleRate;
 		this.threshold = yinThreshold;
 		yinBuffer = new float[bufferSize / 2];
+		//Initializations for FFT difference step
+		audioBufferFFT = new float[2*bufferSize];
+		kernel = new float[2*bufferSize];
+		yinStyleACF = new float[2*bufferSize];
+		fft = new FloatFFT(bufferSize);
 		result = new PitchDetectionResult();
 	}
 
@@ -147,19 +191,49 @@ public final class Yin implements PitchDetector {
 
 	/**
 	 * Implements the difference function as described in step 2 of the YIN
-	 * paper.
+	 * paper with an FFT to reduce the number of operations.
 	 */
 	private void difference(final float[] audioBuffer) {
-		int index, tau;
-		float delta;
-		for (tau = 0; tau < yinBuffer.length; tau++) {
-			yinBuffer[tau] = 0;
+		// POWER TERM CALCULATION
+		// ... for the power terms in equation (7) in the Yin paper
+		float[] powerTerms = new float[yinBuffer.length];
+		for (int j = 0; j < yinBuffer.length; ++j) {
+			powerTerms[0] += audioBuffer[j] * audioBuffer[j];
 		}
-		for (tau = 1; tau < yinBuffer.length; tau++) {
-			for (index = 0; index < yinBuffer.length; index++) {
-				delta = audioBuffer[index] - audioBuffer[index + tau];
-				yinBuffer[tau] += delta * delta;
-			}
+		// now iteratively calculate all others (saves a few multiplications)
+		for (int tau = 1; tau < yinBuffer.length; ++tau) {
+			powerTerms[tau] = powerTerms[tau-1] - audioBuffer[tau-1] * audioBuffer[tau-1] + audioBuffer[tau+yinBuffer.length] * audioBuffer[tau+yinBuffer.length];  
+		}
+
+		// YIN-STYLE AUTOCORRELATION via FFT
+		// 1. data
+		for (int j = 0; j < audioBuffer.length; ++j) {
+			audioBufferFFT[2*j] = audioBuffer[j];
+			audioBufferFFT[2*j+1] = 0;
+		}
+		fft.complexForward(audioBufferFFT);
+		
+		// 2. half of the data, disguised as a convolution kernel
+		for (int j = 0; j < yinBuffer.length; ++j) {
+			kernel[2*j] = audioBuffer[(yinBuffer.length-1)-j];
+			kernel[2*j+1] = 0;
+			kernel[2*j+audioBuffer.length] = 0;
+			kernel[2*j+audioBuffer.length+1] = 0;
+		}
+		fft.complexForward(kernel);
+
+		// 3. convolution via complex multiplication
+		for (int j = 0; j < audioBuffer.length; ++j) {
+			yinStyleACF[2*j]   = audioBufferFFT[2*j]*kernel[2*j] - audioBufferFFT[2*j+1]*kernel[2*j+1]; // real
+			yinStyleACF[2*j+1] = audioBufferFFT[2*j+1]*kernel[2*j] + audioBufferFFT[2*j]*kernel[2*j+1]; // imaginary
+		}
+		fft.complexInverse(yinStyleACF, true);
+		
+		// CALCULATION OF difference function
+		// ... according to (7) in the Yin paper.
+		for (int j = 0; j < yinBuffer.length; ++j) {
+			// taking only the real part
+			yinBuffer[j] = powerTerms[0] + powerTerms[j] - 2 * yinStyleACF[2 * (yinBuffer.length - 1 + j)];
 		}
 	}
 
@@ -210,7 +284,7 @@ public final class Yin implements PitchDetector {
 
 		
 		// if no pitch found, tau => -1
-		if (tau == yinBuffer.length || yinBuffer[tau] >= threshold) {
+		if (tau == yinBuffer.length || yinBuffer[tau] >= threshold || result.getProbability() > 1.0) {
 			tau = -1;
 			result.setProbability(0);
 			result.setPitched(false);	
