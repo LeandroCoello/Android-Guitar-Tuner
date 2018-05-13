@@ -1,4 +1,5 @@
 <resources>
-    <string name="app_name">Guitar/Bass Tuner</string>
+    <!--<string name="app_name">Guitar/Bass Tuner</string>-->
+    <string name="app_name">Tuner Prueba</string>
     <string name="title_activity_six_strings_guitar_tuner">Guitar Tuner</string>
 </resources>
