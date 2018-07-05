@@ -511,14 +511,14 @@
         </RelativeLayout>
 
     </LinearLayout>
-    <TextView
-        android:text=" by L.C. "
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:id="@+id/textView"
-        android:textColorHighlight="@color/colorPrimaryDark"
-        android:background="@color/colorPrimaryDark"
-        android:fontFamily="cursive" />
+    <!--<TextView-->
+        <!--android:text=" by L.C. "-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_alignParentRight="true"-->
+        <!--android:layout_alignParentBottom="true"-->
+        <!--android:id="@+id/textView"-->
+        <!--android:textColorHighlight="@color/colorPrimaryDark"-->
+        <!--android:background="@color/colorPrimaryDark"-->
+        <!--android:fontFamily="cursive" />-->
 </RelativeLayout>
